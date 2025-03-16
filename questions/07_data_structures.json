@@ -1,0 +1,77 @@
+[
+  {
+    "question": "Which data structure uses LIFO",
+    "answers": ["Queue", "Stack", "Deque", "Heap"],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which data structure is best for BFS",
+    "answers": ["Stack", "Queue", "Heap", "Tree"],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What does a priority queue use internally",
+    "answers": ["Stack", "Heap", "Linked List", "Graph"],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which structure has nodes with at most two children",
+    "answers": ["Graph", "Binary Tree", "Heap", "Stack"],
+    "correctAnswerIndex": 1 
+  },
+  {
+    "question": "Which data structure efficiently supports insert/delete at both ends",
+    "answers": ["Deque", "Queue", "Stack", "Heap"],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the best case time complexity for searching in a balanced BST",
+    "answers": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which structure is mainly used for undo operations",
+    "answers": ["Queue", "Deque", "Stack", "Graph"],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which tree guarantees O(log n) insertion and deletion?",
+    "answers": ["Binary Tree", "AVL Tree", "Trie", "Graph"],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which structure is used in Dijkstra’s algorithm?",
+    "answers": ["Stack", "Queue", "Priority Queue", "Deque"],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which data structure is most suitable for a call stack?",
+    "answers": ["Queue", "Stack", "Heap", "Tree"],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which tree does not store keys explicitly?",
+    "answers": ["Binary Tree", "Trie", "Heap", "AVL Tree"],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which data structure is used for backtracking?",
+    "answers": ["Graph", "Stack", "Queue", "Heap"],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Which structure efficiently finds the smallest element?",
+    "answers": ["Heap", "BST", "Queue", "Deque"],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the worst-case search time for a hash table?",
+    "answers": ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Which structure is used to detect cycles in a graph?",
+    "answers": ["Stack", "Queue", "DFS Tree", "Heap"],
+    "correctAnswerIndex": 2
+  }
+]
