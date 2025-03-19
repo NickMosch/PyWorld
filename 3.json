@@ -1,0 +1,153 @@
+[
+    {
+        "question": "Ποιος βρόχος χρησιμοποιείται για επανάληψη σε λίστα στην Python;",
+        "answers": [
+            "repeat",
+            "while",
+            "loop",
+            "for"
+        ],
+        "correctAnswerIndex": 3
+    },
+    {
+        "question": "Ποιο είναι το αποτέλεσμα του for i in range(3): print(i);",
+        "answers": [
+            "0 1 2",
+            "1 2 3",
+            "0 1 2 3",
+            "3 2 1"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Πότε σταματάει ο while βρόχος;",
+        "answers": [
+            "Όταν η συνθήκη είναι True",
+            "Όταν η συνθήκη είναι False",
+            "Όταν τελειώσει η λίστα",
+            "Όταν βάλουμε break"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "Τι σημαίνει η εντολή break;",
+        "answers": [
+            "Διακόπτει τον βρόχο",
+            "Συνεχίζει στον επόμενο βρόχο",
+            "Επαναλαμβάνει τον βρόχο",
+            "Σταματάει όλο το πρόγραμμα"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Ποιος είναι ο σωστός τρόπος να αγνοήσουμε μια επανάληψη βρόχου;",
+        "answers": [
+            "continue",
+            "skip",
+            "ignore",
+            "next"
+        ],
+        "correctAnswerIndex": 0
+    },
+      {
+            "question": "Ποιο από τα παρακάτω δεν είναι έγκυρη επανάληψη;",
+            "answers": [
+                "for",
+                "while",
+                "foreach",
+                "loop"
+            ],
+            "correctAnswerIndex": 2
+        },
+        {
+            "question": "Πόσες φορές θα εκτελεστεί το for i in range(5): print(i);",
+            "answers": [
+                "4",
+                "5",
+                "6",
+                "Άπειρες"
+            ],
+            "correctAnswerIndex": 1
+        },
+        {
+            "question": "Τι θα συμβεί αν ξεχάσουμε να προσθέσουμε break σε έναν άπειρο while loop;",
+            "answers": [
+                "Το πρόγραμμα θα σταματήσει μόνο του",
+                "Η Python θα τον τερματίσει αυτόματα",
+                "Το πρόγραμμα θα εμφανίσει λάθος",
+               "Το πρόγραμμα θα τρέχει για πάντα"
+            ],
+            "correctAnswerIndex": 3
+        },
+        {
+            "question": "Ποιο είναι το αποτέλεσμα του for i in range(2, 6): print(i);",
+            "answers": [
+                "2 3 4 5",
+                "1 2 3 4",
+                "2 3 4 5 6",
+                "3 4 5"
+            ],
+            "correctAnswerIndex": 0
+        },
+        {
+            "question": "Πώς μπορούμε να διακόψουμε έναν for βρόχο πρόωρα;",
+            "answers": [
+                "stop",
+                "break",
+                "exit",
+                "halt"
+            ],
+            "correctAnswerIndex": 1
+        },
+        {
+            "question": "Ποια είναι η έξοδος του while False: print(\"Hello\");",
+            "answers": [
+                "Τίποτα",
+                "\"Hello\"",
+                "Σφάλμα",
+                "\"False\""
+            ],
+            "correctAnswerIndex": 0
+        },
+        {
+            "question": "Πώς μπορούμε να παραλείψουμε μια επανάληψη σε έναν βρόχο;",
+            "answers": [
+                "continue",
+                "break",
+                "pass",
+                "skip"
+            ],
+            "correctAnswerIndex": 0
+        },
+        {
+            "question": "Ποιο από τα παρακάτω είναι άπειρος βρόχος;",
+            "answers": [
+                "while True:",
+                "for i in range(10):",
+                "while i < 10:",
+                "for i in range(1, 10, 2):"
+            ],
+            "correctAnswerIndex": 0
+        },
+        {
+            "question": "Ποια είναι η έξοδος της εντολής list(range(3));",
+            "answers": [
+                "[0, 1, 2, 3]",
+                "[0, 1, 2]",
+                "[1, 2, 3]",
+                "[1, 2]"
+            ],
+            "correctAnswerIndex": 2
+        },
+        {
+            "question": "Ποιο από τα παρακάτω είναι σωστή δήλωση while loop;",
+            "answers": [
+                "while x > 0",
+                "while (x > 0):",
+                "while x > 0 {}",
+                "do while x > 0:"
+            ],
+            "correctAnswerIndex": 1
+        }
+    ]
+    
