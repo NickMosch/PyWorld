@@ -1,0 +1,152 @@
+[
+    {
+        "question": "Ποιος είναι ο σωστός τρόπος να δηλώσεις μια μεταβλητή ακεραίου;",
+        "answers": [
+            "int x = 5;",
+            "integer x = 5;",
+            "num x = 5;",
+            "var x = '5';"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Ποιος τύπος δεδομένων είναι κατάλληλος για μια λέξη;",
+        "answers": [
+            "int",
+            "string",
+            "bool",
+            "float"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "Ποια από τα παρακάτω είναι boolean μεταβλητή;",
+        "answers": [
+            "'1'",
+            "'True'",
+            "1",
+            "True"
+        ],
+        "correctAnswerIndex": 3
+    },
+    {
+        "question": "Τι επιστρέφει η εντολή type(5.5) στην Python;",
+        "answers": [
+            "<class 'string'>",
+            "<class 'int'>",
+            "<class 'float'>",
+            "<class 'double'>"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "question": "Ποιος είναι ο τύπος δεδομένων της τιμής 'Hello';",
+        "answers": [
+            "int",
+            "float",
+           "string",
+            "bool"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "question": "Ποια από τις παρακάτω δηλώσεις είναι σωστή για να αποθηκεύσουμε έναν δεκαδικό αριθμό;",
+        "answers": [
+            "int x = 4.5;",
+            "float x = 4.5;",
+            "bool x = 4.5;",
+            "string x =4.5;"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "Ποιος τύπος δεδομένων χρησιμοποιείται για την αποθήκευση λογικων τιμών ",
+        "answers": [
+            "int",
+            "float",
+            "bool",
+            "char"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "question": "Ποια από τις παρακάτω μεταβλητές είναι έγκυρη στην Python;",
+        "answers": [
+            "1name = John",
+            "_name = John" ,
+            "name# = John",
+            "if = John"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "Ποιο από τα παρακάτω είναι mutable τύπος δεδομένων στην Python",
+        "answers": [
+             "tuple",
+             "string",
+             "int",
+             "list"
+        ],
+        "correctAnswerIndex": 3
+    },
+    {
+        "question": "Τι επιστρέφει η εντολή type(False)",
+        "answers": [
+            "<class 'string'>",
+            " <class 'int'>",
+            "<class 'bool'>",
+            "<class 'NoneType'>"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "question": "Ποιος είναι ο σωστός τρόπος να δηλώσεις μια λίστα;",
+        "answers": [
+            "list = [1, 2, 3]",
+            "list = {1, 2, 3}",
+            "list = (1, 2, 3)",
+            "list = 1, 2, 3"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Ποιος είναι ο μέγιστος αριθμός χαρακτήρων που μπορεί να αποθηκεύσει μια μεταβλητή τύπου string",
+        "answers": [
+             "256",
+             "1024",
+             "Δεν υπάρχει όριο", 
+             "64,000"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "question": "Ποια από τις παρακάτω τιμές θεωρείται False",
+        "answers": [
+              "str(False)",
+              "0",
+              "1",
+              "str(0)"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "Ποια από τις παρακάτω εντολές μετατρέπει έναν ακέραιο σε δεκαδικό αριθμό",
+        "answers": [
+            "int(5.0)",
+            "str(5)",
+            "bool(5)",
+            "float(5)" 
+        ],
+        "correctAnswerIndex": 3
+    },
+    {
+        "question": "Ποιο από τα παρακάτω σύμβολα χρησιμοποιείται για σχόλια ",
+        "answers": [
+            "//",
+            "#",
+            "<!-- -->",
+            "/* */"
+        ],
+        "correctAnswerIndex": 1
+    }
+]
