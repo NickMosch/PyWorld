@@ -1,0 +1,155 @@
+[
+    {
+        "question": "Ποιος είναι ο σωστός λογικός τελεστής για 'και';",
+        "answers": [
+            "and",
+            "or",
+            "not",
+            "&"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Ποιος λογικός τελεστής σημαίνει 'ή';",
+        "answers": [
+            "or",
+            "and",
+            "not",
+            "xor"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Ποια είναι η έξοδος του (True and False);",
+        "answers": [
+            "False",
+            "True",
+            "None",
+            "Error"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Τι επιστρέφει η εντολή (5 > 3) and (2 < 4);",
+        "answers": [
+            "True",
+            "False",
+            "None",
+            "Error"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Πώς γράφουμε ένα if statement στην Python;",
+        "answers": [
+            "if x > 0:",
+            "if x > 0 then",
+            "if (x > 0)",
+            "if x > 0 do:"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        
+            "question": "Ποια είναι η έξοδος της εντολής (True or False) and False;",
+            "answers": [
+                "True",
+                "False",
+                "None",
+                "Error"
+            ],
+            "correctAnswerIndex": 1
+        },
+        {
+        
+            "question": "Ποια είναι η έξοδος του not (False or True);",
+            "answers": [
+                "True",
+                "False",
+                "None",
+                "Error"
+            ],
+            "correctAnswerIndex": 1
+        }    
+        ,
+        {
+            "question": "Τι επιστρέφει η συνθήκη (4 == 4) and (2 > 3);",
+            "answers": [
+                "True",
+                "False",
+                "None",
+                "Error"
+            ],
+            "correctAnswerIndex": 1
+        },
+        {
+            "question": "Ποιο από τα παρακάτω δεν είναι λογικός τελεστής;",
+            "answers": [
+                "and",
+                "or",
+                "not",
+                "add"
+            ],
+            "correctAnswerIndex": 3
+        },
+        {
+            "question": "Ποια είναι η σωστή σύνταξη ενός if-else statement στην Python;",
+            "answers": [
+                "if x > 0: else:",
+                "if (x > 0) {}",
+                "if x > 0: pass else: pass",
+                "if x > 0: pass else: pass"
+            ],
+            "correctAnswerIndex": 2
+        },
+        {
+            "question": "Ποια είναι η έξοδος του bool(\"\");",
+            "answers": [
+                "True",
+                "False",
+                "None",
+                "Error"
+            ],
+            "correctAnswerIndex": 1
+        },
+        {
+            "question": "Ποιος τελεστής χρησιμοποιείται για να ελέγξουμε αν δύο τιμές είναι διαφορετικές;",
+            "answers": [
+                "==",
+                "!=",
+                "<>",
+                "=~"
+            ],
+            "correctAnswerIndex": 1
+        },
+        {
+            "question": "Ποια είναι η έξοδος της εντολής not True == False;",
+            "answers": [
+                "True",
+                "False",
+                "None",
+                "Error"
+            ],
+            "correctAnswerIndex": 0
+        },
+        {
+            "question": "Ποιος από τους παρακάτω συνδυασμούς είναι λάθος στην Python;",
+            "answers": [
+                "(True and False)",
+                "(not False)",
+                "(5 > 3 or 2 < 1)",
+                "(5 and 3 == 3)"
+            ],
+            "correctAnswerIndex": 3
+        },
+        {
+            "question": "Ποια είναι η έξοδος της εντολής bool(0.0);",
+            "answers": [
+                "True",
+                "False",
+                "None",
+                "Error"
+            ],
+            "correctAnswerIndex": 1
+        }
+    ]                 
