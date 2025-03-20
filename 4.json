@@ -1,0 +1,152 @@
+[
+    {
+        "question": "Ποια λέξη-κλειδί χρησιμοποιείται για να διαχειριστούμε εξαιρέσεις ;",
+        "answers": [
+            "catch",
+            "try",
+            "except",
+            "handle"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "Ποιο σφάλμα θα προκύψει αν προσπαθήσουμε να διαιρέσουμε έναν αριθμό με το μηδέν;",
+        "answers": [
+            "ZeroDivisionError",
+            "ValueError",
+            "ArithmeticError",
+            "TypeError"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Πώς μπορούμε να πιάσουμε πολλαπλά exceptions σε μία δήλωση try-except;",
+        "answers": [
+            "except Exception1 or Exception2:",
+            "except (Exception1, Exception2):",
+            "except [Exception1, Exception2]:",
+            "except {Exception1, Exception2}:"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "Ποιο είναι το γενικό exception που πιάνει όλα τα σφάλματα;",
+        "answers": [
+            "BaseException",
+            "Exception",
+            "Error",
+            "Throwable"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "Ποιο μπλοκ κώδικα εκτελείται ανεξάρτητα από το αν προκύψει εξαίρεση ή όχι;",
+        "answers": [
+            "else",
+            "finally",
+            "cleanup",
+            "ensure"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "Πώς μπορούμε να δημιουργήσουμε μια εξαίρεση με ένα προσαρμοσμένο μήνυμα;",
+        "answers": [
+            "error Exception('Μήνυμα')",
+            "throw Exception('Μήνυμα')",
+            "raise Exception('Μήνυμα')",
+            "create Exception('Μήνυμα')"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "question": "Ποιο από τα παρακάτω exceptions ΔΕΝ σχετίζεται με αρρυθμητικές πράξεις;",
+        "answers": [
+            "ZeroDivisionError",
+            "OverflowError",
+            "TypeError",
+            "IndexError"
+        ],
+        "correctAnswerIndex": 3
+    },
+    {
+        "question": "Ποιο exception προκύπτει αν προσπαθήσουμε να προσπελάσουμε ένα στοιχείο λίστας που δεν υπάρχει;",
+        "answers": [
+            "MemoryError",
+            "KeyError",
+            "ValueError",
+            "IndexError"
+        ],
+        "correctAnswerIndex": 3
+    },
+    {
+        "question": "Πώς μπορούμε να πιάσουμε οποιοδήποτε σφάλμα χωρίς να γνωρίζουμε τον τύπο του εκ των προτέρων;",
+        "answers": [
+            "except Exception:",
+            "catch Exception:",
+            "handle Exception:",
+            "try Exception:"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Τι συμβαίνει αν εκτελέσουμε μια δήλωση try χωρίς αντίστοιχο except ή finally;",
+        "answers": [
+            "Θα εμφανιστεί SyntaxError",
+            "Η Python θα αγνοήσει το try και θα εκτελέσει τον υπόλοιπο κώδικα",
+            "Θα τερματιστεί η εκτέλεση του προγράμματος",
+            "Θα εκτυπωθεί ένα προειδοποιητικό μήνυμα αλλά ο κώδικας θα συνεχίσει"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Τι exception εμφανίζεται αν προσπαθήσουμε να μετατρέψουμε το 'abc' σε ακέραιο με int('abc');",
+        "answers": [
+            "TypeError",
+            "ValueError",
+            "SyntaxError",
+            "NameError"
+        ],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "Πώς μπορούμε να αγνοήσουμε ένα exception χωρίς να το χειριστούμε;",
+        "answers": [
+            "except Exception: ignore",
+            "except Exception: continue",
+            "except Exception: pass",
+            "except Exception: skip"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "question": "Τι κάνει η συνάρτηση sys.exit();",
+        "answers": [
+            "Τερματίζει άμεσα το πρόγραμμα",
+            "Τυπώνει μήνυμα σφάλματος και συνεχίζει",
+            "Πιάνει όλες τις εξαιρέσεις",
+            "Εκκαθαρίζει τη μνήμη από exceptions"
+        ],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Ποιο από τα παρακάτω είναι προαιρετικό σε ένα try-except block;",
+        "answers": [
+            "try",
+            "except",
+            "finally",
+            "και τα τρία είναι υποχρεωτικά"
+        ],
+        "correctAnswerIndex": 2
+    },
+    {
+        "question": "Ποιο exception εμφανίζεται αν προσπαθήσουμε να προσπελάσουμε ένα κλειδί σε ένα dictionary που δεν υπάρχει;",
+        "answers": [
+            "KeyError",
+            "IndexError",
+            "TypeError",
+            "ValueError"
+        ],
+        "correctAnswerIndex": 0
+    }
+]
