@@ -1,0 +1,152 @@
+[
+  {
+    "question": "Ποιος από τους παρακάτω είναι σωστός τρόπος για να ορίσουμε μια λίστα στην Python;",
+    "answers": [
+      "list = (1, 2, 3)",
+      "list = [1, 2, 3]",
+      "list = {1, 2, 3}",
+      "list = <1, 2, 3>"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Πώς προσπελαύνουμε το δεύτερο στοιχείο μιας πλειάδας t = (1, 2, 3, 4);",
+    "answers": [
+      "t[1]",
+      "t(1)",
+      "t[2]",
+      "t[2, 1]"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Ποια μέθοδος χρησιμοποιείται για να προσθέσουμε ένα στοιχείο σε λίστα;",
+    "answers": [
+      "list.add()",
+      "list.append()",
+      "list.insert()",
+      "list.push()"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Πώς αφαιρούμε ένα στοιχείο από λίστα βάσει της τιμής του;",
+    "answers": [
+      "list.delete()",
+      "list.remove()",
+      "list.pop()",
+      "list.erase()"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Ποια θα είναι η έξοδος του κώδικα: d = {'a': 1, 'b': 2}; print(d.get('c'));",
+    "answers": [
+      "None",
+      "0",
+      "KeyError",
+      "False"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Ποιο από τα παρακάτω είναι σωστή σύνταξη για δημιουργία λεξικού στην Python;",
+    "answers": [
+      "dict = (1, 2, 3)",
+      "dict = {1, 2, 3}",
+      "dict = {'key1': 'value1', 'key2': 'value2'}",
+      "dict = [1: 2, 3: 4]"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Τι κάνει η μέθοδος list.sort();",
+    "answers": [
+      "Sorts the list in descending order",
+      "Sorts the list in ascending order",
+      "Removes duplicates from the list",
+      "Reverses the list"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Ποιος από τους παρακάτω είναι έγκυρος τρόπος πρόσβασης στην τιμή ενός κλειδιού σε λεξικό;",
+    "answers": [
+      "dict.key1",
+      "dict['key1']",
+      "dict.get(key1)",
+      "dict{key1}"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Ποιος από τους παρακάτω τύπους δεδομένων είναι αμετάβλητος (immutable);",
+    "answers": [
+      "List",
+      "Dictionary",
+      "Tuple",
+      "Set"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Πώς δημιουργούμε μια πλειάδα με ένα μόνο στοιχείο;",
+    "answers": [
+      "t = (1)",
+      "t = [1]",
+      "t = (1,)",
+      "t = 1,"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Ποια συνάρτηση χρησιμοποιείται για να βρούμε το μήκος μιας λίστας στην Python;",
+    "answers": [
+      "size()",
+      "count()",
+      "len()",
+      "length()"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Ποια δεσμευμένη λέξη χρησιμοποιείται για να ορίσουμε συνάρτηση στην Python;",
+    "answers": [
+      "define",
+      "func",
+      "def",
+      "function"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "question": "Τι αποτέλεσμα δίνει η εντολή type([]) στην Python;",
+    "answers": [
+      "list",
+      "tuple",
+      "dict",
+      "set"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Ποιο σύμβολο χρησιμοποιείται για σχολιασμό μίας γραμμής στην Python;",
+    "answers": [
+      "//",
+      "#",
+      "/* */",
+      "--"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Ποια είναι η έξοδος της εντολής bool([]) στην Python;",
+    "answers": [
+      "True",
+      "False",
+      "None",
+      "Error"
+    ],
+    "correctAnswerIndex": 1
+  }
+]
