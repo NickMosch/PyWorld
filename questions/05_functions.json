@@ -1,0 +1,78 @@
+{
+  "questions": [
+    {
+      "question": "What is the keyword used to define a function in Python?",
+      "answers": ["define", "func", "def", "function"],
+      "correctAnswerIndex": 2
+    },
+    {
+      "question": "Which of the following is the correct syntax for defining a function in Python?",
+      "answers": ["function myFunc():", "def myFunc():", "define myFunc():", "func myFunc():"],
+      "correctAnswerIndex": 1
+    },
+    {
+      "question": "What will be the output of the following function?\n\ndef foo():\n    return 42\n\nprint(foo())",
+      "answers": ["42", "None", "foo", "Error"],
+      "correctAnswerIndex": 0
+    },
+    {
+      "question": "Which statement is used to exit a function and return a value?",
+      "answers": ["exit", "return", "break", "continue"],
+      "correctAnswerIndex": 1
+    },
+    {
+      "question": "What will be the output of the following function call?\n\ndef test(x, y=5):\n    return x * y\n\nprint(test(2))",
+      "answers": ["10", "2", "7", "Error"],
+      "correctAnswerIndex": 0
+    },
+    {
+      "question": "What is the default return value of a function that does not explicitly return a value?",
+      "answers": ["0", "None", "Empty String", "Error"],
+      "correctAnswerIndex": 1
+    },
+    {
+      "question": "Which of the following is a valid way to call a function in Python?",
+      "answers": ["call myFunc()", "myFunc()", "invoke myFunc()", "execute myFunc()"],
+      "correctAnswerIndex": 1
+    },
+    {
+      "question": "What is the term for a function that calls itself?",
+      "answers": ["Recursive function", "Loop function", "Callback function", "Lambda function"],
+      "correctAnswerIndex": 0
+    },
+    {
+      "question": "What is a lambda function in Python?",
+      "answers": ["A function defined with the lambda keyword", "A function with no parameters", "A function with multiple return values", "A function that runs in parallel"],
+      "correctAnswerIndex": 0
+    },
+    {
+      "question": "What will the following code output?\n\ndef foo(a, b=2, c=3):\n    return a + b + c\n\nprint(foo(1, c=4))",
+      "answers": ["7", "6", "9", "Error"],
+      "correctAnswerIndex": 0
+    },
+    {
+      "question": "What does the *args parameter allow a function to do?",
+      "answers": ["Accept any number of positional arguments", "Accept only one argument", "Accept keyword arguments", "Ignore extra arguments"],
+      "correctAnswerIndex": 0
+    },
+    {
+      "question": "What does the **kwargs parameter allow a function to do?",
+      "answers": ["Accept only one keyword argument", "Accept any number of keyword arguments", "Accept no arguments", "Accept only positional arguments"],
+      "correctAnswerIndex": 1
+    },
+    {
+      "question": "Which of the following is NOT a valid function name in Python?",
+      "answers": ["my_function", "_myFunction", "123function", "function_123"],
+      "correctAnswerIndex": 2
+    },
+    {
+      "question": "What is the scope of a variable defined inside a function?",
+      "answers": ["Global", "Local", "Universal", "Static"],
+      "correctAnswerIndex": 1
+    {
+      "question": "Which of the following function definitions is valid in Python?",
+      "answers": ["def func(a, b=2, c=3):", "def func(a=1, b, c=3):", "def func(a, b=2, c):", "def func(a=1, b=2, c=3, d)"],
+      "correctAnswerIndex": 0
+    }
+  ]
+}
