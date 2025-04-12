@@ -11,21 +11,21 @@ WINDOW = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("PyWorld")
 
 # Load images
-SPACESHIP_IMG = pg.image.load("assets/C4_Space/UFO_2.png")
-ALIEN_IMG = pg.image.load("assets/C4_Space/UFO_1.png")
-LASER_BULLET = pg.image.load("assets/C4_Space/Laser.png")
-
+SPACESHIP_IMG = pg.image.load("assets/C1_DeepSea/03_submarine_1.png")
+ALIEN_IMG = pg.image.load("assets/C2_Land/04_tank_2.png")
+LASER_BULLET = pg.image.load("assets/C2_Land/02_Missile_2.png")
 
 # Load background image
-BACKGROUND_IMG = pg.image.load("assets/C4_Space/space_over_earth.jpg")  # Replace with your background image path
+BACKGROUND_IMG = pg.image.load("assets/C2_Land/01_forest_land.jpg")  # Replace with your background image path
 BACKGROUND_IMG = pg.transform.scale(BACKGROUND_IMG, (WIDTH, HEIGHT))  # Scale to fit the window
 
 class Player:
 
-    VELOCITY = 10
+    VELOCITY = 5
 
     def __init__(self):  # First instantiation of the player
         self.image = SPACESHIP_IMG  # Player Sprite
+        self.image = pg.transform.rotate(self.image, -90)
         self.image = pg.transform.scale(self.image, (150, 100))
         self.mask = pg.mask.from_surface(self.image)  # Player mask for collisions
         self.x = 50 # Starting x position
@@ -34,7 +34,6 @@ class Player:
         self.lasers = []  # List of bullets in the screen shot by the player
         self.cooldown_timer = 0
         self.cooldown = 80
-
 
     def draw(self, window):
         window.blit(self.image, (self.x, self.y))
@@ -82,9 +81,8 @@ class Player:
     def get_height(self):
         return self.image.get_height()
 
-
 # Rotate player spaceship to face right
-SPACESHIP_IMG = pg.transform.rotate(SPACESHIP_IMG, -90)  # Rotate 90 degrees left
+#SPACESHIP_IMG = pg.transform.rotate(SPACESHIP_IMG, -90)  # Rotate 90 degrees left
 
 class Alien:
     def __init__(self, x, y, hp):
@@ -96,14 +94,12 @@ class Alien:
         self.mask = pg.mask.from_surface(self.image)
         self.image = pg.transform.scale(self.image, (140, 100))
 
-
     def draw(self, window):
         window.blit(self.image, (self.x, self.y))
 
     def move(self):
         self.x -= self.vel
         self.vel += 0.001
-
 
 class Laser:
 
@@ -131,10 +127,8 @@ def checkCollision(obj1, obj2):
     offset_y= int(obj2.y - obj1.y)
     return obj1.mask.overlap(obj2.mask, (offset_x, offset_y)) is not None
 
-
 def outOfScreen(obj):
     return obj.y < 0 or obj.y > HEIGHT
-
 
 def main():
     font = pg.font.SysFont("comicsans", 60)
