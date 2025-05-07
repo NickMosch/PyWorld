@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+app/__pycache__/
 *.py[cod]
 *$py.class
 
@@ -169,8 +169,11 @@ cython_debug/
 
 # Ruff stuff:
 
-myenv/
 .ruff_cache/
 
 # PyPI configuration file
 .pypirc
+
+# rest
+
+myenv/
