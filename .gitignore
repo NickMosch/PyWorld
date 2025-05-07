@@ -168,6 +168,8 @@ cython_debug/
 #.idea/
 
 # Ruff stuff:
+
+myenv/
 .ruff_cache/
 
 # PyPI configuration file
