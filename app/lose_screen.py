@@ -11,9 +11,9 @@ class LoseScreen():
         self.game.check_events()
         self.checkEvents()
         self.game.reset_keys() 
-        self.game.draw_text_directly(30,"YOU LOST",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
-        self.game.draw_text_directly(20,"PRESS ENTER TO RESTART THE CHAPTER",self.game.WIDTH/2,self.game.HEIGHT/2 + 60,self.game.WHITE)
-        self.game.draw_text_directly(20,"PRESS BACKSPACE TO RETURN TO THE MAIN MENU",self.game.WIDTH/2,self.game.HEIGHT/2 + 80,self.game.WHITE)
+        self.game.draw_text(30,"YOU LOST",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
+        self.game.draw_text(20,"PRESS ENTER TO RESTART THE CHAPTER",self.game.WIDTH/2,self.game.HEIGHT/2 + 60,self.game.WHITE)
+        self.game.draw_text(20,"PRESS BACKSPACE TO RETURN TO THE MAIN MENU",self.game.WIDTH/2,self.game.HEIGHT/2 + 80,self.game.WHITE)
         pygame.display.update()
     
     def display_lose_screen(self):

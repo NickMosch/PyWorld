@@ -1,23 +1,56 @@
 import pygame as pg
 import json,random,os
-from menu import *
+from menu import menu
 from transition_screen import Screen
 from lose_screen import LoseScreen
+from pathlib import Path
 
-questionsDir = os.fsencode('questions')
-questions = []
-for questionsFile in sorted(os.listdir(questionsDir)):
-    questionsFileName = os.fsdecode(questionsFile)
-    with open(f"questions/{questionsFileName}", 'r') as file:    
-        questions.append(json.load(file))
+BASE_DIR = Path(__file__).resolve().parent
 
+assets_path = BASE_DIR / "../assets"
+questions_path  = BASE_DIR/"../questions"
 chaptersAssets = []
 chapterKeys = ["background","bullet","player","enemy"]
-for assetsSubDir in sorted(os.listdir("assets")):
-    currentChapterAssets = [f"assets/{assetsSubDir}/"+assets for assets in sorted(os.listdir(f"assets/{assetsSubDir}/"))]
-    formattedAsset = dict(zip(chapterKeys,currentChapterAssets))
-    chaptersAssets.append(formattedAsset)
 
+questions = []
+
+def loadGameContent(correctTutorialAnswers):
+    questions.clear()
+    chaptersAssets.clear()
+    
+    if correctTutorialAnswers == 0:
+        min = 0
+        max = 3
+    elif correctTutorialAnswers == 1:
+        min = 1
+        max = 4
+    elif correctTutorialAnswers == 2:
+        min = 2
+        max = 5
+    else:
+        min = 3
+        max = 6
+    
+    for currentFileIndex in range(min,max):
+        questionsFile = sorted(questions_path.iterdir())[currentFileIndex]
+        with open(str(questionsFile), 'r') as file:    
+            questions.append(json.load(file))
+
+    assetsLoaded = 0
+    for assetsSubDir in sorted(assets_path.iterdir()):
+        currentChapterAssets = [str(asset) for asset in sorted(assetsSubDir.iterdir())]
+        formattedAsset = dict(zip(chapterKeys, currentChapterAssets))
+        chaptersAssets.append(formattedAsset)
+        assetsLoaded+=1
+        if assetsLoaded == 4:
+            break
+    random.shuffle(questions[0])
+
+
+with open("questions/tutorial.json", 'r') as file:    
+    questions.append(json.load(file))
+chapterOneimgs = [f"assets/C1_DeepSea/" + asset for asset in os.listdir("assets/C1_DeepSea")]
+chaptersAssets.append(dict(zip(chapterKeys,chapterOneimgs)))
 random.shuffle(questions[0])
 pg.display.set_caption("Space Invaders")
 
@@ -133,27 +166,28 @@ def checkCollision(obj1, obj2):
         return obj1.mask.overlap(obj2.mask, (offset_x, offset_y)) != None
 
 def outOfScreen(obj,self):
-    return obj.y < 0 or obj.y > self.HEIGHT
-
+    return obj.x < 0 
+    
 class Game():
 
     def __init__(self):
-        
-        self.font_name = pygame.font.get_default_font()
+        self.isTutorial = True
+        self.font_name = pg.font.get_default_font()
         self.globalLoopRun = True
         self.gameLoopRun = True
         self.UP_KEY,self.DOWN_KEY,self.START_KEY,self.BACK_KEY = False,False,False,False
         self.FPS = 60
-        self.WIDTH, self.HEIGHT = 1550, 900
+        self.WIDTH, self.HEIGHT = 1550,900
         self.border = self.WIDTH//2
         self.BLACK, self.WHITE = (0, 0, 0), (255, 255, 255)
         self.WINDOW = pg.display.set_mode((self.WIDTH, self.HEIGHT))
         self.BG_IMAGE = pg.transform.scale(BG_IMAGE, (self.WIDTH, self.HEIGHT))
         self.clock = pg.time.Clock()
-        self.menu = Menu(self)
+        self.menu = menu(self)
         #self.credits = CreditsMenu(self)
         self.tran_screen = Screen(self)
         self.lose_screen = LoseScreen(self)
+        self.correctTutorialAnswers = 0
         self.chapter = 0
         self.level = 0
         self.state = 0  # default state
@@ -164,9 +198,9 @@ class Game():
         for i in range(len(self.aliens)):
             self.aliens[i].draw(self.WINDOW)
             self.aliens[i].move()
-            self.draw_text_directly(20,questions[self.chapter][self.level]["answers"][i],self.aliens[i].x + 20,self.aliens[i].y - 20,self.WHITE)
-        self.draw_text_directly(30,f"LEVEL {self.level + 1}",self.WIDTH/2,20,self.WHITE)
-        self.draw_text_directly(25,questions[self.chapter][self.level]["question"],self.WIDTH/2,100,self.WHITE)
+            self.draw_text(20,questions[self.chapter][self.level]["answers"][i],self.aliens[i].x + 20,self.aliens[i].y - 20,self.WHITE)
+        self.draw_text(30,f"LEVEL {self.level + 1}",self.WIDTH/2,20,self.WHITE)
+        self.draw_text(25,questions[self.chapter][self.level]["question"],self.WIDTH/2,100,self.WHITE)
         pg.display.update()
     
     def check_events(self):
@@ -182,15 +216,8 @@ class Game():
     def reset_keys(self):
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False                    
 
-    def draw_text(self, text, size, x, y ):
-        font = pygame.font.Font(self.font_name,size)
-        text_surface = font.render(text, True, self.WHITE)
-        text_rect = text_surface.get_rect()
-        text_rect.center = (x,y)
-        self.menu.display.blit(text_surface,text_rect)
-
-    def draw_text_directly(self,size,text,x,y,color):
-        font = pygame.font.Font(self.font_name,size)
+    def draw_text(self,size,text,x,y,color):
+        font = pg.font.Font(self.font_name,size)
         text_surface = font.render(text, True, color)
         text_rect = text_surface.get_rect()
         text_rect.center = (x,y)
@@ -198,6 +225,48 @@ class Game():
 
     #def loadAssets(self,chapter):
         
+
+    def handle_game_state(self):
+        if self.state==1:
+            self.level+=1
+            if self.level==3:
+                global PLAYER_IMG
+                global ENEMY_IMG
+                global LASER_BULET
+                self.chapter+=1
+                self.level = 0
+                PLAYER_IMG = pg.image.load(chaptersAssets[self.chapter]["player"])
+                ENEMY_IMG = pg.image.load(chaptersAssets[self.chapter]["enemy"])
+                LASER_BULET= pg.image.load(chaptersAssets[self.chapter]["bullet"])
+                transformedImage = pg.image.load(chaptersAssets[self.chapter]["background"])
+                self.BG_IMAGE = pg.transform.scale(transformedImage,(self.WIDTH, self.HEIGHT))
+                self.tran_screen.moveToNextChapter = True
+                random.shuffle(questions[self.chapter])
+            else:
+                self.tran_screen.moveToNextChapter = False
+            self.tran_screen.isScreenRunning = True
+            self.gameLoopRun = False
+        elif self.state == -1:
+            self.gameLoopRun = False
+            self.level = 0
+            random.shuffle(questions[self.chapter])
+            self.lose_screen.isLoseRunning = True
+
+    def handle_tutorial_state(self):
+        if self.state == 1:
+            self.correctTutorialAnswers +=1
+            self.level+=1
+            self.gameLoopRun = False
+            self.tran_screen.isScreenRunning = True  
+        elif self.state == -1:
+            self.level+=1
+            self.gameLoopRun = False
+            self.tran_screen.isScreenRunning = True
+        
+        if self.level == 4:
+            self.tran_screen.isTutorialComplete = True
+            self.level = 0
+            loadGameContent(self.correctTutorialAnswers)
 
     def game_loop(self):
 
@@ -220,7 +289,6 @@ class Game():
             self.clock.tick(self.FPS)
             self.redraw_window()                                                    
             self.check_events()
-            #self.menu.draw_cursor()
             keys = pg.key.get_pressed()
             if keys[pg.K_a] and self.player.x - self.player.VELOCITY > 0:  # left
                 self.player.move("left")
@@ -228,7 +296,7 @@ class Game():
                 self.player.move("right")
             if keys[pg.K_w] and self.player.y - self.player.VELOCITY > 0: #up
                 self.player.move("up")
-            if keys[pg.K_s] and self.player.y + self.player.VELOCITY + self.player.get_height() < self.HEIGHT: #down
+            if keys[pg.K_s] and (self.player.y + self.player.VELOCITY + self.player.get_height() < self.HEIGHT): #down
                 self.player.move("down")
             if keys[pg.K_SPACE]:  # shoot
                 self.player.shoot()
@@ -239,33 +307,15 @@ class Game():
                 if checkCollision(alien, self.player) or outOfScreen(alien,self):
                     self.state = -1
 
-            if self.state==1:
-                self.level+=1
-                if self.level==3:
-                    global PLAYER_IMG
-                    global ENEMY_IMG
-                    global LASER_BULET
-                    self.chapter+=1
-                    self.level = 0
-                    PLAYER_IMG = pg.image.load(chaptersAssets[self.chapter]["player"])
-                    ENEMY_IMG = pg.image.load(chaptersAssets[self.chapter]["enemy"])
-                    LASER_BULET= pg.image.load(chaptersAssets[self.chapter]["bullet"])
-                    transformedImage = pg.image.load(chaptersAssets[self.chapter]["background"])
-                    self.BG_IMAGE = pg.transform.scale(transformedImage,(self.WIDTH, self.HEIGHT))
-                    self.tran_screen.moveToNextChapter = True
-                else:
-                    self.tran_screen.moveToNextChapter = False
-                self.tran_screen.isScreenRunning = True
-                self.gameLoopRun = False
-            elif self.state == -1:
-                self.gameLoopRun = False
-                self.level = 0
-                random.shuffle(questions[self.chapter])
-                self.lose_screen.isLoseRunning = True
+            if self.isTutorial:
+                self.handle_tutorial_state()
+            else:
+                self.handle_game_state()
 
-            if self.BACK_KEY:
+            if self.BACK_KEY and not self.isTutorial:
                 self.gameLoopRun = False
                 self.menu.run_display = True
                 self.tran_screen.isScreenRunning = False    
+                self.menu.display_menu()
 
             self.reset_keys()

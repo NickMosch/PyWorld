@@ -4,6 +4,7 @@ class Screen():
     def __init__(self,game):
         self.game = game
         self.moveToNextChapter = False
+        self.isTutorialComplete = False
         self.isScreenRunning = False
         self.clock = pygame.time.Clock()
 
@@ -12,14 +13,23 @@ class Screen():
         self.game.check_events()
         self.checkEvents()
         self.game.reset_keys()
-        if self.moveToNextChapter:
-            self.game.draw_text_directly(30,"YOU BEAT THIS CHAPTER ",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
-            self.game.draw_text_directly(20,"Press enter for next chapter",self.game.WIDTH/2,self.game.HEIGHT/2 + 60,self.game.WHITE)
-            self.game.draw_text_directly(20,"Press backspace for main menu",self.game.WIDTH/2,self.game.HEIGHT/2 + 80,self.game.WHITE)
+        if not self.game.isTutorial:
+            if self.moveToNextChapter:
+                self.game.draw_text(30,"YOU BEAT THIS CHAPTER ",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
+                self.game.draw_text(20,"Press enter for next chapter",self.game.WIDTH/2,self.game.HEIGHT/2 + 60,self.game.WHITE)
+                self.game.draw_text(20,"Press backspace for main menu",self.game.WIDTH/2,self.game.HEIGHT/2 + 80,self.game.WHITE)
+            else:
+                self.game.draw_text(30,"CORRECT ANSWER",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
+                self.game.draw_text(20,"Press enter for next level",self.game.WIDTH/2,self.game.HEIGHT/2 + 60,self.game.WHITE)
+                self.game.draw_text(20,"Press backspace for main menu",self.game.WIDTH/2,self.game.HEIGHT/2 + 80,self.game.WHITE)
         else:
-            self.game.draw_text_directly(30,"CORRECT ANSWER",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
-            self.game.draw_text_directly(20,"Press enter for next level",self.game.WIDTH/2,self.game.HEIGHT/2 + 60,self.game.WHITE)
-            self.game.draw_text_directly(20,"Press backspace for main menu",self.game.WIDTH/2,self.game.HEIGHT/2 + 80,self.game.WHITE)
+            if self.isTutorialComplete:
+                self.game.draw_text(30,"YOU COMPLETED THE TUTORIAL",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
+                self.game.draw_text(20,"Press enter to start the main game",self.game.WIDTH/2,self.game.HEIGHT/2 + 60,self.game.WHITE)
+            else:
+                self.game.draw_text(30,"NEXT TUTORIAL LEVEL STARTS IN...",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
+                self.game.draw_text(20,"Press enter to actually start it, there is no timer yet",self.game.WIDTH/2,self.game.HEIGHT/2 + 60,self.game.WHITE)
+        
         pygame.display.update()
     
     def display_transition_screen(self):
@@ -29,8 +39,13 @@ class Screen():
 
     def checkEvents(self):
         if self.game.START_KEY:
-            self.game.gameLoopRun = True
-            self.isScreenRunning = False
-        if self.game.BACK_KEY:
+            if self.game.isTutorial and self.isTutorialComplete:
+                self.game.menu.run_display = True
+                self.isScreenRunning = False
+                self.game.isTutorial = False
+            else:
+                self.game.gameLoopRun = True
+                self.isScreenRunning = False
+        if self.game.BACK_KEY and not self.game.isTutorial:
             self.game.menu.run_display = True
             self.isScreenRunning = False

@@ -140,7 +140,7 @@
                 "(5 > 3 or 2 < 1)",
                 "(5 and 3 == 3)"
             ],
-            "correctAnswerIndex": 3
+            "correctAnswerIndex": 0
         },
         {
             "question": "Ποια είναι η έξοδος της εντολής bool(0.0);",
