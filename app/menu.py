@@ -99,6 +99,8 @@ class menu:
 
     def display_menu(self):
         clock = pygame.time.Clock()
+        if self.run_display:
+            self.game.fade("menu",0)
 
         while self.run_display:
             self.screen.fill(self.BLACK)
@@ -130,6 +132,7 @@ class menu:
                             if selected == "Start":
                                 self.run_display = False
                                 self.game.gameLoopRun = True
+                                self.game.fade("menu",1)
                                 break
                             elif selected == "Instructions":
                                 self.current_screen = "instructions"

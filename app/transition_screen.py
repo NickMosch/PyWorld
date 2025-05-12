@@ -10,10 +10,7 @@ class Screen():
 
     def draw_screen(self):
         self.game.WINDOW.fill((0,0,0))
-        self.game.check_events()
-        self.checkEvents()
-        self.game.reset_keys()
-        if not self.game.isTutorial:
+        if not self.game.isTutorial and self.isTutorialComplete:
             if self.moveToNextChapter:
                 self.game.draw_text(30,"YOU BEAT THIS CHAPTER ",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
                 self.game.draw_text(20,"Press enter for next chapter",self.game.WIDTH/2,self.game.HEIGHT/2 + 60,self.game.WHITE)
@@ -33,8 +30,13 @@ class Screen():
         pygame.display.update()
     
     def display_transition_screen(self):
+        if self.isScreenRunning:
+            self.game.fade("transition",0)
         while self.isScreenRunning:
             self.draw_screen()
+            self.game.check_events()
+            self.checkEvents()
+            self.game.reset_keys()
             self.clock.tick(60)
 
     def checkEvents(self):
@@ -43,9 +45,12 @@ class Screen():
                 self.game.menu.run_display = True
                 self.isScreenRunning = False
                 self.game.isTutorial = False
+                self.game.fade("transition",1)
             else:
                 self.game.gameLoopRun = True
                 self.isScreenRunning = False
+                self.game.fade("transition",1)
         if self.game.BACK_KEY and not self.game.isTutorial:
             self.game.menu.run_display = True
             self.isScreenRunning = False
+            self.game.fade("transition",1)

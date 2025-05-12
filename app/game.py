@@ -3,6 +3,7 @@ import json,random,os
 from menu import menu
 from transition_screen import Screen
 from lose_screen import LoseScreen
+from intro import introScreen
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -187,6 +188,7 @@ class Game():
         #self.credits = CreditsMenu(self)
         self.tran_screen = Screen(self)
         self.lose_screen = LoseScreen(self)
+        self.intro_screen = introScreen(self)
         self.correctTutorialAnswers = 0
         self.chapter = 0
         self.level = 0
@@ -222,9 +224,27 @@ class Game():
         text_rect = text_surface.get_rect()
         text_rect.center = (x,y)
         self.WINDOW.blit(text_surface,text_rect)
-
-    #def loadAssets(self,chapter):
         
+    def fade(self,module,mode):
+        fade = pg.Surface((self.WIDTH, self.HEIGHT))
+        fade.fill((0, 0, 0))
+        clock = pg.time.Clock()
+        myRange = [0,256,10] if mode else [255,-1,-10]
+        for alpha in range(*myRange):
+            fade.set_alpha(alpha)
+            if module == "game":
+                self.redraw_window()
+            elif module == "transition":
+                self.tran_screen.draw_screen()
+            elif module == "lose":
+                self.lose_screen.draw_screen()
+            elif module == "menu":
+                self.menu.draw_menu()
+            else:
+                self.intro_screen.draw_instructions()
+            self.WINDOW.blit(fade, (0, 0))
+            pg.display.update()
+            clock.tick(60)
 
     def handle_game_state(self):
         if self.state==1:
@@ -262,8 +282,8 @@ class Game():
             self.level+=1
             self.gameLoopRun = False
             self.tran_screen.isScreenRunning = True
-        
-        if self.level == 4:
+
+        if self.level == 2:
             self.tran_screen.isTutorialComplete = True
             self.level = 0
             loadGameContent(self.correctTutorialAnswers)
@@ -284,7 +304,6 @@ class Game():
                 if(questions[self.chapter][self.level]["correctAnswerIndex"] == i):
                     new_alien.isAnswer = True
                 self.aliens.append(new_alien)
-
         while self.gameLoopRun:
             self.clock.tick(self.FPS)
             self.redraw_window()                                                    
