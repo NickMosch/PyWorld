@@ -1,6 +1,6 @@
 [
     {
-        "question": "Ποιος βρόχος χρησιμοποιείται για επανάληψη σε λίστα στην Python;",
+        "question": "Which loop is used to iterate over a list in Python?",
         "answers": [
             "repeat",
             "while",
@@ -10,7 +10,7 @@
         "correctAnswerIndex": 3
     },
     {
-        "question": "Ποιο είναι το αποτέλεσμα του for i in range(3): print(i);",
+        "question": "What is the result of for i in range(3): print(i)?",
         "answers": [
             "0 1 2",
             "1 2 3",
@@ -20,27 +20,27 @@
         "correctAnswerIndex": 0
     },
     {
-        "question": "Πότε σταματάει ο while βρόχος;",
+        "question": "When does the while loop stop?",
         "answers": [
-            "Όταν η συνθήκη είναι True",
-            "Όταν η συνθήκη είναι False",
-            "Όταν τελειώσει η λίστα",
-            "Όταν βάλουμε break"
+            "When the condition is True",
+            "When the condition is False",
+            "When the list is finished",
+            "When we take a break"
         ],
         "correctAnswerIndex": 1
     },
     {
-        "question": "Τι σημαίνει η εντολή break;",
+        "question": "What does the break command mean?",
         "answers": [
-            "Διακόπτει τον βρόχο",
-            "Συνεχίζει στον επόμενο βρόχο",
-            "Επαναλαμβάνει τον βρόχο",
-            "Σταματάει όλο το πρόγραμμα"
+            "Breaks the loop",
+            "Continues to the next loop",
+            "Repeats the loop",
+            "Stops the entire program"
         ],
         "correctAnswerIndex": 0
     },
     {
-        "question": "Ποιος είναι ο σωστός τρόπος να αγνοήσουμε μια επανάληψη βρόχου;",
+        "question": "What is the correct way to ignore a loop iteration?",
         "answers": [
             "continue",
             "skip",
@@ -50,7 +50,7 @@
         "correctAnswerIndex": 0
     },
       {
-            "question": "Ποιο από τα παρακάτω δεν είναι έγκυρη επανάληψη;",
+            "question": "Which of the following is not a valid repetition?",
             "answers": [
                 "for",
                 "while",
@@ -60,27 +60,27 @@
             "correctAnswerIndex": 2
         },
         {
-            "question": "Πόσες φορές θα εκτελεστεί το for i in range(5): print(i);",
+            "question": "How many times will for i in range(5): print(i) be executed?",
             "answers": [
                 "4",
                 "5",
                 "6",
-                "Άπειρες"
+                "Infinite"
             ],
             "correctAnswerIndex": 1
         },
         {
-            "question": "Τι θα συμβεί αν ξεχάσουμε να προσθέσουμε break σε έναν άπειρο while loop;",
+            "question": "What happens if we forget to add break to an infinite while loop?",
             "answers": [
-                "Το πρόγραμμα θα σταματήσει μόνο του",
-                "Η Python θα τον τερματίσει αυτόματα",
-                "Το πρόγραμμα θα εμφανίσει λάθος",
-               "Το πρόγραμμα θα τρέχει για πάντα"
+                "The program will stop on its own",
+                "Python will terminate it automatically",
+                "The program will display an error",
+               "The program will run forever"
             ],
             "correctAnswerIndex": 3
         },
         {
-            "question": "Ποιο είναι το αποτέλεσμα του for i in range(2, 6): print(i);",
+            "question": "What is the result of for i in range(2, 6): print(i);",
             "answers": [
                 "2 3 4 5",
                 "1 2 3 4",
@@ -90,7 +90,7 @@
             "correctAnswerIndex": 0
         },
         {
-            "question": "Πώς μπορούμε να διακόψουμε έναν for βρόχο πρόωρα;",
+            "question": "How can we break a for loop prematurely?",
             "answers": [
                 "stop",
                 "break",
@@ -100,17 +100,17 @@
             "correctAnswerIndex": 1
         },
         {
-            "question": "Ποια είναι η έξοδος του while False: print(\"Hello\");",
+            "question": "What is the output of while False: print(\"Hello\");",
             "answers": [
-                "Τίποτα",
+                "Nothing",
                 "\"Hello\"",
-                "Σφάλμα",
+                "Error",
                 "\"False\""
             ],
             "correctAnswerIndex": 0
         },
         {
-            "question": "Πώς μπορούμε να παραλείψουμε μια επανάληψη σε έναν βρόχο;",
+            "question": "How can we skip an iteration in a loop?",
             "answers": [
                 "continue",
                 "break",
@@ -120,7 +120,7 @@
             "correctAnswerIndex": 0
         },
         {
-            "question": "Ποιο από τα παρακάτω είναι άπειρος βρόχος;",
+            "question": "Which of the following is an infinite loop?",
             "answers": [
                 "while True:",
                 "for i in range(10):",
@@ -130,7 +130,7 @@
             "correctAnswerIndex": 0
         },
         {
-            "question": "Ποια είναι η έξοδος της εντολής list(range(3));",
+            "question": "What is the output of the command list(range(3))?",
             "answers": [
                 "[0, 1, 2, 3]",
                 "[0, 1, 2]",
@@ -140,7 +140,7 @@
             "correctAnswerIndex": 1
         },
         {
-            "question": "Ποιο από τα παρακάτω είναι σωστή δήλωση while loop;",
+            "question": "Which of the following is a correct while loop statement?;",
             "answers": [
                 "while x > 0",
                 "while (x > 0):",
