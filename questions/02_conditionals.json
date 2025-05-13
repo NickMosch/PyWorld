@@ -1,6 +1,6 @@
 [
     {
-        "question": "Ποιος είναι ο σωστός λογικός τελεστής για 'και';",
+        "question": "What is the correct logical operator for 'and'?",
         "answers": [
             "and",
             "or",
@@ -10,7 +10,7 @@
         "correctAnswerIndex": 0
     },
     {
-        "question": "Ποιος λογικός τελεστής σημαίνει 'ή';",
+        "question": "Which logical operator means 'or'?",
         "answers": [
             "or",
             "and",
@@ -20,7 +20,7 @@
         "correctAnswerIndex": 0
     },
     {
-        "question": "Ποια είναι η έξοδος του (True and False);",
+        "question": "What is the output of (True and False);",
         "answers": [
             "False",
             "True",
@@ -30,7 +30,7 @@
         "correctAnswerIndex": 0
     },
     {
-        "question": "Τι επιστρέφει η εντολή (5 > 3) and (2 < 4);",
+        "question": "What does the command (5 > 3) and (2 < 4) return?",
         "answers": [
             "True",
             "False",
@@ -40,7 +40,7 @@
         "correctAnswerIndex": 0
     },
     {
-        "question": "Πώς γράφουμε ένα if statement στην Python;",
+        "question": "How to write an if statement in Python;",
         "answers": [
             "if x > 0:",
             "if x > 0 then",
@@ -51,7 +51,7 @@
     },
     {
         
-            "question": "Ποια είναι η έξοδος της εντολής (True or False) and False;",
+            "question": "What is the output of the command (True or False) and False;",
             "answers": [
                 "True",
                 "False",
@@ -62,7 +62,7 @@
         },
         {
         
-            "question": "Ποια είναι η έξοδος του not (False or True);",
+            "question": "What is the output of not (False or True)?",
             "answers": [
                 "True",
                 "False",
@@ -73,7 +73,7 @@
         }    
         ,
         {
-            "question": "Τι επιστρέφει η συνθήκη (4 == 4) and (2 > 3);",
+            "question": "What does the condition (4 == 4) and (2 > 3) return?",
             "answers": [
                 "True",
                 "False",
@@ -83,7 +83,7 @@
             "correctAnswerIndex": 1
         },
         {
-            "question": "Ποιο από τα παρακάτω δεν είναι λογικός τελεστής;",
+            "question": "Which of the following is not a logical operator?",
             "answers": [
                 "and",
                 "or",
@@ -93,7 +93,7 @@
             "correctAnswerIndex": 3
         },
         {
-            "question": "Ποια είναι η σωστή σύνταξη ενός if-else statement στην Python;",
+            "question": "What is the correct syntax for an if-else statement in Python?",
             "answers": [
                 "if x > 0: else:",
                 "if (x > 0) {}",
@@ -103,7 +103,7 @@
             "correctAnswerIndex": 2
         },
         {
-            "question": "Ποια είναι η έξοδος του bool(\"\");",
+            "question": "What is the output of bool(\"\");",
             "answers": [
                 "True",
                 "False",
@@ -113,7 +113,7 @@
             "correctAnswerIndex": 1
         },
         {
-            "question": "Ποιος τελεστής χρησιμοποιείται για να ελέγξουμε αν δύο τιμές είναι διαφορετικές;",
+            "question": "Which operator is used to check if two values ​​are different?",
             "answers": [
                 "==",
                 "!=",
@@ -123,7 +123,7 @@
             "correctAnswerIndex": 1
         },
         {
-            "question": "Ποια είναι η έξοδος της εντολής not True == False;",
+            "question": "What is the output of the command not True == False?;",
             "answers": [
                 "True",
                 "False",
@@ -133,7 +133,7 @@
             "correctAnswerIndex": 0
         },
         {
-            "question": "Ποιος από τους παρακάτω συνδυασμούς είναι λάθος στην Python;",
+            "question": "Which of the following combinations is incorrect in Python;",
             "answers": [
                 "(True and False)",
                 "(not False)",
@@ -143,7 +143,7 @@
             "correctAnswerIndex": 0
         },
         {
-            "question": "Ποια είναι η έξοδος της εντολής bool(0.0);",
+            "question": "What is the output of the command bool(0.0)?;",
             "answers": [
                 "True",
                 "False",
