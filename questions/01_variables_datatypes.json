@@ -1,6 +1,6 @@
 [
     {
-        "question": "Ποιος είναι ο σωστός τρόπος να δηλώσεις μια μεταβλητή ακεραίου;",
+        "question": "What is the correct way to declare an integer variable?",
         "answers": [
             "int x = 5;",
             "integer x = 5;",
@@ -10,7 +10,7 @@
         "correctAnswerIndex": 0
     },
     {
-        "question": "Ποιος τύπος δεδομένων είναι κατάλληλος για μια λέξη;",
+        "question": "What data type is suitable for a word?",
         "answers": [
             "int",
             "string",
@@ -20,7 +20,7 @@
         "correctAnswerIndex": 1
     },
     {
-        "question": "Ποια από τα παρακάτω είναι boolean μεταβλητή;",
+        "question": "Which of the following is a boolean variable?",
         "answers": [
             "'1'",
             "'True'",
@@ -30,7 +30,7 @@
         "correctAnswerIndex": 3
     },
     {
-        "question": "Τι επιστρέφει η εντολή type(5.5) στην Python;",
+        "question": "What does the type(5.5) command return in Python?",
         "answers": [
             "<class 'string'>",
             "<class 'int'>",
@@ -40,7 +40,7 @@
         "correctAnswerIndex": 2
     },
     {
-        "question": "Ποιος είναι ο τύπος δεδομένων της τιμής 'Hello';",
+        "question": "What is the data type of the value 'Hello'?",
         "answers": [
             "int",
             "float",
@@ -50,7 +50,7 @@
         "correctAnswerIndex": 2
     },
     {
-        "question": "Ποια από τις παρακάτω δηλώσεις είναι σωστή για να αποθηκεύσουμε έναν δεκαδικό αριθμό;",
+        "question": "Which of the following statements is correct for storing a decimal number?",
         "answers": [
             "int x = 4.5;",
             "float x = 4.5;",
@@ -60,7 +60,7 @@
         "correctAnswerIndex": 1
     },
     {
-        "question": "Ποιος τύπος δεδομένων χρησιμοποιείται για την αποθήκευση λογικων τιμών ",
+        "question": "What data type is used to store logical values? ",
         "answers": [
             "int",
             "float",
@@ -70,7 +70,7 @@
         "correctAnswerIndex": 2
     },
     {
-        "question": "Ποια από τις παρακάτω μεταβλητές είναι έγκυρη στην Python;",
+        "question": "Which of the following variables is valid in Python?",
         "answers": [
             "1name = John",
             "_name = John" ,
@@ -80,7 +80,7 @@
         "correctAnswerIndex": 1
     },
     {
-        "question": "Ποιο από τα παρακάτω είναι mutable τύπος δεδομένων στην Python",
+        "question": "Which of the following is a mutable data type in Python?",
         "answers": [
              "tuple",
              "string",
@@ -90,7 +90,7 @@
         "correctAnswerIndex": 3
     },
     {
-        "question": "Τι επιστρέφει η εντολή type(False)",
+        "question": "What does the type(False) command return?",
         "answers": [
             "<class 'string'>",
             " <class 'int'>",
@@ -100,7 +100,7 @@
         "correctAnswerIndex": 2
     },
     {
-        "question": "Ποιος είναι ο σωστός τρόπος να δηλώσεις μια λίστα;",
+        "question": "What is the correct way to declare a list?;",
         "answers": [
             "list = [1, 2, 3]",
             "list = {1, 2, 3}",
@@ -110,7 +110,7 @@
         "correctAnswerIndex": 0
     },
     {
-        "question": "Ποιος είναι ο μέγιστος αριθμός χαρακτήρων που μπορεί να αποθηκεύσει μια μεταβλητή τύπου string",
+        "question": "What is the maximum number of characters a string variable can store?",
         "answers": [
              "256",
              "1024",
@@ -120,7 +120,7 @@
         "correctAnswerIndex": 2
     },
     {
-        "question": "Ποια από τις παρακάτω τιμές θεωρείται False",
+        "question": "Which of the following values ​​is considered False?",
         "answers": [
               "str(False)",
               "0",
@@ -130,7 +130,7 @@
         "correctAnswerIndex": 1
     },
     {
-        "question": "Ποια από τις παρακάτω εντολές μετατρέπει έναν ακέραιο σε δεκαδικό αριθμό",
+        "question": "Which of the following commands converts an integer to a decimal number?",
         "answers": [
             "int(5.0)",
             "str(5)",
@@ -140,7 +140,7 @@
         "correctAnswerIndex": 3
     },
     {
-        "question": "Ποιο από τα παρακάτω σύμβολα χρησιμοποιείται για σχόλια ",
+        "question": "Which of the following symbols is used for comments?",
         "answers": [
             "//",
             "#",
