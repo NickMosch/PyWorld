@@ -1,6 +1,6 @@
 [
     {
-        "question": "Ποια λέξη-κλειδί χρησιμοποιείται για να διαχειριστούμε εξαιρέσεις ;",
+        "question": "Which keyword is used to handle exceptions?",
         "answers": [
             "catch",
             "try",
@@ -10,7 +10,7 @@
         "correctAnswerIndex": 1
     },
     {
-        "question": "Ποιο σφάλμα θα προκύψει αν προσπαθήσουμε να διαιρέσουμε έναν αριθμό με το μηδέν;",
+        "question": "What error will occur if we try to divide a number by zero?",
         "answers": [
             "ZeroDivisionError",
             "ValueError",
@@ -20,7 +20,7 @@
         "correctAnswerIndex": 0
     },
     {
-        "question": "Πώς μπορούμε να πιάσουμε πολλαπλά exceptions σε μία δήλωση try-except;",
+        "question": "How can we catch multiple exceptions in a try-except statement?",
         "answers": [
             "except Exception1 or Exception2:",
             "except (Exception1, Exception2):",
@@ -30,7 +30,7 @@
         "correctAnswerIndex": 1
     },
     {
-        "question": "Ποιο είναι το γενικό exception που πιάνει όλα τα σφάλματα;",
+        "question": "What is the general exception that catches all errors?",
         "answers": [
             "BaseException",
             "Exception",
@@ -40,7 +40,7 @@
         "correctAnswerIndex": 1
     },
     {
-        "question": "Ποιο μπλοκ κώδικα εκτελείται ανεξάρτητα από το αν προκύψει εξαίρεση ή όχι;",
+        "question": "Which block of code is executed regardless of whether an exception occurs or not;",
         "answers": [
             "else",
             "finally",
@@ -50,7 +50,7 @@
         "correctAnswerIndex": 1
     },
     {
-        "question": "Πώς μπορούμε να δημιουργήσουμε μια εξαίρεση με ένα προσαρμοσμένο μήνυμα;",
+        "question": "How can we create an exception with a custom message?",
         "answers": [
             "error Exception('Μήνυμα')",
             "throw Exception('Μήνυμα')",
@@ -60,7 +60,7 @@
         "correctAnswerIndex": 2
     },
     {
-        "question": "Ποιο από τα παρακάτω exceptions ΔΕΝ σχετίζεται με αρρυθμητικές πράξεις;",
+        "question": "Which of the following exceptions is NOT related to irregular operations?",
         "answers": [
             "ZeroDivisionError",
             "OverflowError",
@@ -70,7 +70,7 @@
         "correctAnswerIndex": 3
     },
     {
-        "question": "Ποιο exception προκύπτει αν προσπαθήσουμε να προσπελάσουμε ένα στοιχείο λίστας που δεν υπάρχει;",
+        "question": "What exception occurs if we try to access a list element that does not exist?",
         "answers": [
             "MemoryError",
             "KeyError",
@@ -80,7 +80,7 @@
         "correctAnswerIndex": 3
     },
     {
-        "question": "Πώς μπορούμε να πιάσουμε οποιοδήποτε σφάλμα χωρίς να γνωρίζουμε τον τύπο του εκ των προτέρων;",
+        "question": "How can we catch any error without knowing its type in advance?",
         "answers": [
             "except Exception:",
             "catch Exception:",
@@ -90,17 +90,17 @@
         "correctAnswerIndex": 0
     },
     {
-        "question": "Τι συμβαίνει αν εκτελέσουμε μια δήλωση try χωρίς αντίστοιχο except ή finally;",
+        "question": "What happens if we execute a try statement without a corresponding except or finally statement?",
         "answers": [
-            "Θα εμφανιστεί SyntaxError",
-            "Η Python θα αγνοήσει το try και θα εκτελέσει τον υπόλοιπο κώδικα",
-            "Θα τερματιστεί η εκτέλεση του προγράμματος",
-            "Θα εκτυπωθεί ένα προειδοποιητικό μήνυμα αλλά ο κώδικας θα συνεχίσει"
+            "SyntaxError will appear.",
+            "Python will ignore the try and execute the rest of the code",
+            "The program execution will be terminated.",
+            "A warning message will be printed but the code will continue"
         ],
         "correctAnswerIndex": 0
     },
     {
-        "question": "Τι exception εμφανίζεται αν προσπαθήσουμε να μετατρέψουμε το 'abc' σε ακέραιο με int('abc');",
+        "question": "What exception occurs if we try to convert 'abc' to an integer with int('abc');",
         "answers": [
             "TypeError",
             "ValueError",
@@ -120,27 +120,27 @@
         "correctAnswerIndex": 2
     },
     {
-        "question": "Τι κάνει η συνάρτηση sys.exit();",
+        "question": "What does the sys.exit() function do?",
         "answers": [
-            "Τερματίζει άμεσα το πρόγραμμα",
-            "Τυπώνει μήνυμα σφάλματος και συνεχίζει",
-            "Πιάνει όλες τις εξαιρέσεις",
-            "Εκκαθαρίζει τη μνήμη από exceptions"
+            "Terminates the program immediately",
+            "Prints an error message and continues",
+            "Catches all exceptions",
+            "Clears memory from exceptions"
         ],
         "correctAnswerIndex": 0
     },
     {
-        "question": "Ποιο από τα παρακάτω είναι προαιρετικό σε ένα try-except block;",
+        "question": "Which of the following is optional in a try-except block?",
         "answers": [
             "try",
             "except",
             "finally",
-            "και τα τρία είναι υποχρεωτικά"
+            "all three are mandatory?"
         ],
         "correctAnswerIndex": 2
     },
     {
-        "question": "Ποιο exception εμφανίζεται αν προσπαθήσουμε να προσπελάσουμε ένα κλειδί σε ένα dictionary που δεν υπάρχει;",
+        "question": "What exception occurs if we try to access a key in a dictionary that does not exist?",
         "answers": [
             "KeyError",
             "IndexError",
