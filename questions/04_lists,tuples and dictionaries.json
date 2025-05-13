@@ -1,6 +1,6 @@
 [
   {
-    "question": "Ποιος από τους παρακάτω είναι σωστός τρόπος για να ορίσουμε μια λίστα στην Python;",
+    "question": "Which of the following is the correct way to define a list in Python?;",
     "answers": [
       "list = (1, 2, 3)",
       "list = [1, 2, 3]",
@@ -10,7 +10,7 @@
     "correctAnswerIndex": 1
   },
   {
-    "question": "Πώς προσπελαύνουμε το δεύτερο στοιχείο μιας πλειάδας t = (1, 2, 3, 4);",
+    "question": "How do we access the second element of a tuple t = (1, 2, 3, 4);",
     "answers": [
       "t[1]",
       "t(1)",
@@ -20,7 +20,7 @@
     "correctAnswerIndex": 0
   },
   {
-    "question": "Ποια μέθοδος χρησιμοποιείται για να προσθέσουμε ένα στοιχείο σε λίστα;",
+    "question": "Which method is used to add an element to a list?;",
     "answers": [
       "list.add()",
       "list.append()",
@@ -30,7 +30,7 @@
     "correctAnswerIndex": 1
   },
   {
-    "question": "Πώς αφαιρούμε ένα στοιχείο από λίστα βάσει της τιμής του;",
+    "question": "How to remove an element from a list based on its value;",
     "answers": [
       "list.delete()",
       "list.remove()",
@@ -40,7 +40,7 @@
     "correctAnswerIndex": 1
   },
   {
-    "question": "Ποια θα είναι η έξοδος του κώδικα: d = {'a': 1, 'b': 2}; print(d.get('c'));",
+    "question": "What will be the output of the code: d = {'a': 1, 'b': 2}; print(d.get('c'));",
     "answers": [
       "None",
       "0",
@@ -50,7 +50,7 @@
     "correctAnswerIndex": 0
   },
   {
-    "question": "Ποιο από τα παρακάτω είναι σωστή σύνταξη για δημιουργία λεξικού στην Python;",
+    "question": "Which of the following is correct syntax for creating a dictionary in Python?",
     "answers": [
       "dict = (1, 2, 3)",
       "dict = {1, 2, 3}",
@@ -60,7 +60,7 @@
     "correctAnswerIndex": 2
   },
   {
-    "question": "Τι κάνει η μέθοδος list.sort();",
+    "question": "What does the list.sort() method do?",
     "answers": [
       "Sorts the list in descending order",
       "Sorts the list in ascending order",
@@ -70,7 +70,7 @@
     "correctAnswerIndex": 1
   },
   {
-    "question": "Ποιος από τους παρακάτω είναι έγκυρος τρόπος πρόσβασης στην τιμή ενός κλειδιού σε λεξικό;",
+    "question": "Which of the following is a valid way to access the value of a key in a dictionary?",
     "answers": [
       "dict.key1",
       "dict['key1']",
@@ -80,7 +80,7 @@
     "correctAnswerIndex": 1
   },
   {
-    "question": "Ποιος από τους παρακάτω τύπους δεδομένων είναι αμετάβλητος (immutable);",
+    "question": "Which of the following data types is immutable?",
     "answers": [
       "List",
       "Dictionary",
@@ -90,7 +90,7 @@
     "correctAnswerIndex": 2
   },
   {
-    "question": "Πώς δημιουργούμε μια πλειάδα με ένα μόνο στοιχείο;",
+    "question": "How do we create a tuple with a single element?",
     "answers": [
       "t = (1)",
       "t = [1]",
@@ -100,7 +100,7 @@
     "correctAnswerIndex": 2
   },
   {
-    "question": "Ποια συνάρτηση χρησιμοποιείται για να βρούμε το μήκος μιας λίστας στην Python;",
+    "question": "Which function is used to find the length of a list in Python?",
     "answers": [
       "size()",
       "count()",
@@ -110,7 +110,7 @@
     "correctAnswerIndex": 2
   },
   {
-    "question": "Ποια δεσμευμένη λέξη χρησιμοποιείται για να ορίσουμε συνάρτηση στην Python;",
+    "question": "Which reserved word is used to define a function in Python?",
     "answers": [
       "define",
       "func",
@@ -120,7 +120,7 @@
     "correctAnswerIndex": 2
   },
   {
-    "question": "Τι αποτέλεσμα δίνει η εντολή type([]) στην Python;",
+    "question": "What does the type([]) command do in Python?",
     "answers": [
       "list",
       "tuple",
@@ -130,7 +130,7 @@
     "correctAnswerIndex": 0
   },
   {
-    "question": "Ποιο σύμβολο χρησιμοποιείται για σχολιασμό μίας γραμμής στην Python;",
+    "question": "Which symbol is used to comment a line in Python?;",
     "answers": [
       "//",
       "#",
@@ -140,7 +140,7 @@
     "correctAnswerIndex": 1
   },
   {
-    "question": "Ποια είναι η έξοδος της εντολής bool([]) στην Python;",
+    "question": "What is the output of the bool([]) command in Python?;",
     "answers": [
       "True",
       "False",
