@@ -133,12 +133,12 @@
             "correctAnswerIndex": 1
         },
         {
-            "question": "Which of the following combinations is incorrect in Python;",
+            "question": "Which of the following expressions correctly checks if the variable number is not equal to 0 in Python;",
             "answers": [
-                "(True and False)",
-                "(not False)",
-                "(5 > 3 or 2 < 1)",
-                "(5 and 3 == 3)"
+                "if number != 0",
+                "if number <> 0",
+                "if not number = 0",
+                "if number not 0"
             ],
             "correctAnswerIndex": 0
         },
