@@ -123,14 +123,14 @@
             "correctAnswerIndex": 1
         },
         {
-            "question": "What is the output of the command not True == False?",
+            "question": " Which of the following expressions correctly checks if a number x is between 10 and 20 (inclusive) in Python?",
             "answers": [
-                "True",
-                "False",
-                "None",
-                "Error"
+                "if x > 10 and < 20",
+                "if x >= 10 and x <= 20",
+                "if (10 <= x <= 20)",
+                "if x => 10 and x=< 20 "
             ],
-            "correctAnswerIndex": 0
+            "correctAnswerIndex": 1
         },
         {
             "question": "Which of the following combinations is incorrect in Python;",
