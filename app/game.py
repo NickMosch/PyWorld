@@ -1,19 +1,47 @@
 import pygame as pg
 import json,random,os
+import sys
 from menu import menu
 from transition_screen import Screen
 from lose_screen import LoseScreen
 from intro import introScreen
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent
+if getattr(sys, 'frozen', False):
+    BASE_DIR = Path(sys._MEIPASS)
+else:
+    BASE_DIR = Path(__file__).resolve().parent.parent
 
-assets_path = BASE_DIR / "../assets"
-questions_path  = BASE_DIR/"../questions"
+print(BASE_DIR)
+assets_path = (BASE_DIR / "assets").resolve()
+questions_path = (BASE_DIR / "questions").resolve()
+
 chaptersAssets = []
 chapterKeys = ["background","bullet","player","enemy"]
 
 questions = []
+
+pg.mixer.init()
+
+collision_sound_path = (BASE_DIR / "assets" / "sound_effects" / "explosion.mp3")
+victory_sound_path = (BASE_DIR / "assets" / "sound_effects" / "victory.mp3").resolve()
+defeat_sound_path = (BASE_DIR / "assets" / "sound_effects" / "defeat.mp3").resolve()
+shootlaser_sound_path = (BASE_DIR / "assets" / "sound_effects" / "laser_shot.mp3").resolve()
+sea_environment_path = (BASE_DIR / "assets" / "sound_effects" / "Underwater.mp3").resolve()
+nature_environment_path = (BASE_DIR / "assets" / "sound_effects" / "missle_shot.mp3").resolve()
+sky_environment_path = (BASE_DIR / "assets" / "sound_effects" / "sky_jet.mp3").resolve()
+space_environment_path = (BASE_DIR / "assets" / "sound_effects" / "space_ufo.mp3").resolve()
+
+collision_sound = pg.mixer.Sound(str(collision_sound_path))
+victory_sound = pg.mixer.Sound(str(victory_sound_path))
+defeat_sound = pg.mixer.Sound(str(defeat_sound_path))
+shootlaser_sound = pg.mixer.Sound(str(shootlaser_sound_path))
+sea_environment = pg.mixer.Sound(str(sea_environment_path))
+nature_environment = pg.mixer.Sound(str(nature_environment_path))
+sky_environment = pg.mixer.Sound(str(sky_environment_path))
+space_environment = pg.mixer.Sound(str(space_environment_path))
+
+sky_environment.set_volume(0.1)
 
 def loadGameContent(correctTutorialAnswers):
     questions.clear()
@@ -21,16 +49,16 @@ def loadGameContent(correctTutorialAnswers):
     
     if correctTutorialAnswers == 0:
         min = 0
-        max = 3
+        max = 4
     elif correctTutorialAnswers == 1:
         min = 1
-        max = 4
+        max = 5
     elif correctTutorialAnswers == 2:
         min = 2
-        max = 5
+        max = 6
     else:
         min = 3
-        max = 6
+        max = 7
     
     for currentFileIndex in range(min,max):
         questionsFile = sorted(questions_path.iterdir())[currentFileIndex]
@@ -47,11 +75,15 @@ def loadGameContent(correctTutorialAnswers):
             break
     random.shuffle(questions[0])
 
+tutorial_questions_path = (BASE_DIR / "questions" / "tutorial.json").resolve()
 
-with open("questions/tutorial.json", 'r') as file:    
+with open(tutorial_questions_path, 'r') as file:    
     questions.append(json.load(file))
-chapterOneimgs = [f"assets/C1_DeepSea/" + asset for asset in os.listdir("assets/C1_DeepSea")]
-chaptersAssets.append(dict(zip(chapterKeys,chapterOneimgs)))
+
+chapter_one_dir = BASE_DIR / "assets" / "C1_DeepSea"
+chapterOneimgs = [str(chapter_one_dir / asset) for asset in os.listdir(chapter_one_dir)]
+chaptersAssets.append(dict(zip(chapterKeys, chapterOneimgs)))
+
 random.shuffle(questions[0])
 pg.display.set_caption("Space Invaders")
 
@@ -133,6 +165,7 @@ class Player:
                 for obj in objs:
                     if checkCollision(laser, obj):                        
                         self.lasers.remove(laser)
+                        shootlaser_sound.play()
                         if obj.isAnswer:
                             self.game.state = 1
                         else:
@@ -189,20 +222,26 @@ class Game():
         self.tran_screen = Screen(self)
         self.lose_screen = LoseScreen(self)
         self.intro_screen = introScreen(self)
+        self.environment_sounds = [sea_environment,nature_environment,sky_environment,space_environment]
         self.correctTutorialAnswers = 0
         self.chapter = 0
         self.level = 0
         self.state = 0  # default state
+        self.paused = False
+        self.playerWon = False
 
     def redraw_window(self):
         self.WINDOW.blit(self.BG_IMAGE,(0,0))
         self.player.draw(self.WINDOW)
         for i in range(len(self.aliens)):
             self.aliens[i].draw(self.WINDOW)
-            self.aliens[i].move()
+            if not self.paused:
+                self.aliens[i].move()
             self.draw_text(20,questions[self.chapter][self.level]["answers"][i],self.aliens[i].x + 20,self.aliens[i].y - 20,self.WHITE)
         self.draw_text(30,f"LEVEL {self.level + 1}",self.WIDTH/2,20,self.WHITE)
         self.draw_text(25,questions[self.chapter][self.level]["question"],self.WIDTH/2,100,self.WHITE)
+        if self.paused:
+            self.draw_pause_overlay()
         pg.display.update()
     
     def check_events(self):
@@ -214,6 +253,37 @@ class Game():
                     self.START_KEY = True
                 if event.key == pg.K_BACKSPACE:
                     self.BACK_KEY = True
+
+    def draw_pause_overlay(self):
+        overlay = pg.Surface((self.WIDTH, self.HEIGHT), pg.SRCALPHA)
+        overlay.fill((0, 0, 0, 180))  
+        self.WINDOW.blit(overlay, (0, 0))
+
+        box_width, box_height = 500, 200
+        box_rect = pg.Rect(
+            (self.WIDTH - box_width) // 2,
+            (self.HEIGHT - box_height) // 2,
+            box_width,
+            box_height
+        )
+        pg.draw.rect(self.WINDOW, (50, 50, 50), box_rect)
+        pg.draw.rect(self.WINDOW, (200, 200, 200), box_rect, 2)
+
+        font = pg.font.SysFont(None, 32)
+        
+        if not self.isTutorial:
+            lines = [
+                "Game Paused",
+                "Press ESC to continue",
+                "Press BACKSPACE to return to the main menu"
+            ]
+        else:
+            lines = [
+                "Game Paused",
+               "Press ESC to continue"
+            ]
+        for i, line in enumerate(lines):
+            self.draw_text(20,line,self.WIDTH // 2, box_rect.top + 40 + i * 50,self.WHITE)
 
     def reset_keys(self):
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False                    
@@ -249,19 +319,25 @@ class Game():
     def handle_game_state(self):
         if self.state==1:
             self.level+=1
-            if self.level==3:
+            if self.level==1:
                 global PLAYER_IMG
                 global ENEMY_IMG
                 global LASER_BULET
+                self.environment_sounds[self.chapter].stop()
                 self.chapter+=1
                 self.level = 0
+                self.tran_screen.moveToNextChapter = True
+                if self.chapter == 4:
+                    self.playerWon = True
+                    self.chapter = 0
+                    self.tran_screen.moveToNextChapter = False
                 PLAYER_IMG = pg.image.load(chaptersAssets[self.chapter]["player"])
                 ENEMY_IMG = pg.image.load(chaptersAssets[self.chapter]["enemy"])
                 LASER_BULET= pg.image.load(chaptersAssets[self.chapter]["bullet"])
                 transformedImage = pg.image.load(chaptersAssets[self.chapter]["background"])
                 self.BG_IMAGE = pg.transform.scale(transformedImage,(self.WIDTH, self.HEIGHT))
-                self.tran_screen.moveToNextChapter = True
                 random.shuffle(questions[self.chapter])
+                victory_sound.play()
             else:
                 self.tran_screen.moveToNextChapter = False
             self.tran_screen.isScreenRunning = True
@@ -271,13 +347,14 @@ class Game():
             self.level = 0
             random.shuffle(questions[self.chapter])
             self.lose_screen.isLoseRunning = True
+            defeat_sound.play()
 
     def handle_tutorial_state(self):
         if self.state == 1:
             self.correctTutorialAnswers +=1
             self.level+=1
             self.gameLoopRun = False
-            self.tran_screen.isScreenRunning = True  
+            self.tran_screen.isScreenRunning = True 
         elif self.state == -1:
             self.level+=1
             self.gameLoopRun = False
@@ -286,6 +363,7 @@ class Game():
         if self.level == 2:
             self.tran_screen.isTutorialComplete = True
             self.level = 0
+            self.environment_sounds[self.chapter].stop()
             loadGameContent(self.correctTutorialAnswers)
 
     def game_loop(self):
@@ -304,11 +382,30 @@ class Game():
                 if(questions[self.chapter][self.level]["correctAnswerIndex"] == i):
                     new_alien.isAnswer = True
                 self.aliens.append(new_alien)
+
+        if self.gameLoopRun:
+            self.environment_sounds[self.chapter].play(-1)
+
         while self.gameLoopRun:
             self.clock.tick(self.FPS)
             self.redraw_window()                                                    
             self.check_events()
             keys = pg.key.get_pressed()
+
+            if  keys[pg.K_p]:
+                self.paused = True
+
+            if self.paused:
+                if keys[pg.K_ESCAPE]:
+                    self.paused = False
+                if not self.isTutorial:
+                    if keys[pg.K_BACKSPACE]:
+                        self.paused = False
+                        self.gameLoopRun = False
+                        self.environment_sounds[self.chapter].stop()
+                        self.menu.run_display = True
+                continue
+
             if keys[pg.K_a] and self.player.x - self.player.VELOCITY > 0:  # left
                 self.player.move("left")
             if keys[pg.K_d] and self.player.x + self.player.VELOCITY + self.player.get_width() < self.border:  # right
@@ -318,8 +415,9 @@ class Game():
             if keys[pg.K_s] and (self.player.y + self.player.VELOCITY + self.player.get_height() < self.HEIGHT): #down
                 self.player.move("down")
             if keys[pg.K_SPACE]:  # shoot
+                #shootlaser_sound.play()
                 self.player.shoot()
-
+            
             self.player.move_lasers(-20, self.aliens)
 
             for alien in self.aliens:
@@ -330,11 +428,4 @@ class Game():
                 self.handle_tutorial_state()
             else:
                 self.handle_game_state()
-
-            if self.BACK_KEY and not self.isTutorial:
-                self.gameLoopRun = False
-                self.menu.run_display = True
-                self.tran_screen.isScreenRunning = False    
-                self.menu.display_menu()
-
             self.reset_keys()

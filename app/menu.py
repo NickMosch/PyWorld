@@ -1,5 +1,13 @@
 import pygame
 import sys
+from pathlib import Path
+
+if getattr(sys, 'frozen', False):
+    BASE_DIR = Path(sys._MEIPASS)
+else:
+    BASE_DIR = Path(__file__).resolve().parent.parent
+
+assets_path = (BASE_DIR / "assets").resolve()
 
 class menu:
     def __init__(self,game):
@@ -12,19 +20,21 @@ class menu:
         self.YELLOW = (255, 255, 100)
         self.DARK_GRAY = (50, 50, 50)
         self.BLACK = (0, 0, 0)
-        self.FONT = pygame.font.SysFont("consolas", 50)
-        self.SMALL_FONT = pygame.font.SysFont("consolas", 30)
+        self.FONT = pygame.font.SysFont("consolas", 40)
+        self.SMALL_FONT = pygame.font.SysFont("consolas", 25)
         self.game = game
 
         # Load and scale background
-        self.background = pygame.image.load("assets/matrix.png")
+        self.background_path = BASE_DIR / "assets" / "matrix.png"
+        self.background = pygame.image.load(str(self.background_path))
         self.background = pygame.transform.scale(self.background, (self.WIDTH, self.HEIGHT))
 
         # Sounds
-        self.sound = pygame.mixer.Sound("assets/sound_effects/background_music.mp3")
-        self.sound2 = pygame.mixer.Sound("assets/sound_effects/beep.mp3")
-        self.sound.set_volume(0.3)
-        self.sound.play(-1)
+        self.bg_music_path = BASE_DIR / "assets" / "sound_effects" / "background_music.mp3"
+        self.bg_music = pygame.mixer.Sound(str(self.bg_music_path))
+        self.sound2_path = BASE_DIR / "assets" / "sound_effects" / "beep.mp3"
+        self.sound2 = pygame.mixer.Sound(str(self.sound2_path))
+        self.bg_music.set_volume(0.3)
 
         # Display
         self.screen = pygame.display.set_mode((self.WIDTH, self.HEIGHT))
@@ -62,10 +72,18 @@ class menu:
         self.screen.blit(title, (self.WIDTH//2 - title.get_width()//2, 80))
 
         instructions = [
-            "Use the ARROW KEYS to navigate the menu.",
+            "Menu Controls: Use the ARROW keys to navigate the menu.",
             "Press ENTER to select a menu option.",
-            "In-game instructions will appear here.",
-            "To return to the main menu, press BACKSPACE."
+            "To return to the main menu, press BACKSPACE.",
+            "The questions will appear on the top of the screen, and 4 answers in the form of ",
+            "submarines (in Chapter 1), tanks (in Chapter 2), helicopters (in Chapter 3) or UFO's (in Chapter 4)",
+            "will appear, only ONE of which is correct.",
+            "Shoot the answer you think is correct, if it's correct then you move on to the next question",
+            "until all 9 questions are answered correctly. Then you proceed to the next chapter.",
+            "If you answer a question wrong, the chapter restarts.",
+            "Gameplay Controls: ",
+            "Use the W A S D keys to move and the SPACE button to shoot.",
+            "Press 'P' to pause the game at any time"
         ]
         for i, line in enumerate(instructions):
             text = self.SMALL_FONT.render(line, True, self.WHITE)
@@ -101,6 +119,9 @@ class menu:
         clock = pygame.time.Clock()
         if self.run_display:
             self.game.fade("menu",0)
+            self.bg_music.play(-1)
+            self.game.isTutorial = False
+            self.game.playerWon = False
 
         while self.run_display:
             self.screen.fill(self.BLACK)
@@ -132,6 +153,7 @@ class menu:
                             if selected == "Start":
                                 self.run_display = False
                                 self.game.gameLoopRun = True
+                                self.bg_music.stop()
                                 self.game.fade("menu",1)
                                 break
                             elif selected == "Instructions":
@@ -147,11 +169,11 @@ class menu:
                     elif self.current_screen == "settings":
                         if event.key == pygame.K_LEFT:
                             self.volume = max(0.0, self.volume - 0.1)
-                            self.sound.set_volume(self.volume)
+                            self.bg_music.set_volume(self.volume)
                             self.sound2.play()
                         elif event.key == pygame.K_RIGHT:
                             self.volume = min(1.0, self.volume + 0.1)
-                            self.sound.set_volume(self.volume)
+                            self.bg_music.set_volume(self.volume)
                             self.sound2.play()
                         elif event.key == pygame.K_UP:
                             self.brightness = min(1.0, self.brightness + 0.1)

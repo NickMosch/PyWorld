@@ -1,5 +1,13 @@
 import pygame
 import sys
+from pathlib import Path
+
+if getattr(sys, 'frozen', False):
+    BASE_DIR = Path(sys._MEIPASS)
+else:
+    BASE_DIR = Path(__file__).resolve().parent.parent
+
+assets_path = (BASE_DIR / "assets").resolve()
 
 class introScreen:
     def __init__(self,game):
@@ -12,22 +20,22 @@ class introScreen:
         self.YELLOW = (255, 255, 100)
         self.DARK_GRAY = (50, 50, 50)
         self.BLACK = (0, 0, 0)
-        self.FONT = pygame.font.SysFont("consolas", 50)
-        self.SMALL_FONT = pygame.font.SysFont("consolas", 27)
+        self.FONT = pygame.font.SysFont("consolas", 35)
+        self.SMALL_FONT = pygame.font.SysFont("consolas", 21)
 
         # Display
         self.screen = pygame.display.set_mode((self.game.WIDTH, self.game.HEIGHT))
         pygame.display.set_caption("Welcome to PyWorld!")
 
         # Load background
-        self.background = pygame.image.load("assets/matrix.png")
+        self.bg_path = assets_path / "matrix.png"
+        self.background = pygame.image.load(str(self.bg_path))
         self.background = pygame.transform.scale(self.background, (self.game.WIDTH, self.game.HEIGHT))
 
         # Sound
-        self.background_music = pygame.mixer.Sound("assets/sound_effects/background_music.mp3")
-        self.sound2 = pygame.mixer.Sound("assets/sound_effects/beep.mp3")
-        self.background_music.set_volume(0.3)
-        self.background_music.play(-1)
+        self.background_music = self.game.menu.bg_music
+        self.sound2 = self.game.menu.sound2
+        self.background_music.set_volume(0.2)
 
     def draw_instructions(self):
         self.screen.blit(self.background, (0, 0))
@@ -47,7 +55,8 @@ class introScreen:
             "Gameplay Controls: ",
             "Use the W A S D keys to move and the SPACE button to shoot. "
             "Before the main game starts, there will be a small chapter",
-            "to determine your knowledge level."
+            "to determine your knowledge level.",
+            "Press 'P' to pause the game at any time"
         ]
 
         for i, line in enumerate(instructions):
@@ -55,8 +64,8 @@ class introScreen:
             self.screen.blit(text, (self.game.WIDTH // 2 - text.get_width() // 2, 200 + i * 50))
 
         enter_text = self.FONT.render("Press ENTER to continue", True, self.DARK_GRAY)
-        rect = enter_text.get_rect(center=(self.game.WIDTH // 2, self.game.HEIGHT - 100))
-        pygame.draw.rect(self.screen, self.YELLOW, rect.inflate(40, 20), border_radius=10)
+        rect = enter_text.get_rect(center=(self.game.WIDTH // 2, self.game.HEIGHT - 30))
+        pygame.draw.rect(self.screen, self.YELLOW, rect.inflate(30, 10), border_radius=10)
         self.screen.blit(enter_text, rect)
 
     def display_intro(self):
@@ -64,22 +73,22 @@ class introScreen:
         self.game.fade("intro",0)
 
         running = True
+        self.background_music.play()
         while running:
             self.draw_instructions()
             pygame.display.flip()
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    running = False
+                    running,self.game.globalLoopRun,self.game.gameLoopRun,self.game.menu.run_display,self.game.tran_screen.isScreenRunning,self.game.lose_screen.isLoseRunning = False,False,False,False,False,False
 
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
                         self.sound2.play()
                         self.game.fade("intro",1)
                         # Start the game here
+                        self.background_music.stop()
                         self.game.gameLoopRun = True
-                        running = False
-                    elif event.key == pygame.K_ESCAPE:
                         running = False
 
             clock.tick(60)

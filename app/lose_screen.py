@@ -30,6 +30,7 @@ class LoseScreen():
             self.game.fade("lose",0)
         if self.game.BACK_KEY:
             self.game.menu.run_display = True
+            self.game.environment_sounds[self.game.chapter].stop()
             self.isLoseRunning = False
             self.game.fade("lose",0)
 
