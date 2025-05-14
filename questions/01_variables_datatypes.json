@@ -52,7 +52,7 @@
     {
         "question": "Which of the following statements is correct for storing a decimal number?",
         "answers": [
-            "int x = 4.5;",
+            "x = 4.5;",
             "float x = 4.5;",
             "bool x = 4.5;",
             "string x =4.5;"
