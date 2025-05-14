@@ -50,12 +50,12 @@
         "correctAnswerIndex": 0
     },
       {
-            "question": "Which of the following is not a valid repetition?",
+            "question": " What is the purpose of the else clause in a Python for or while loop??",
             "answers": [
-                "for",
-                "while",
-                "foreach",
-                "loop"
+                " It runs only if the loop runs more than once",
+                " It runs after every iteration of the loop",
+                " It runs only if the loop completes without a break",
+                "It disables the break statement in the loop"
             ],
             "correctAnswerIndex": 2
         },
