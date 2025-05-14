@@ -1,13 +1,13 @@
 [
     {
-        "question": "What is the correct way to declare an integer variable?",
+        "question": "What happens when you assign a value to a variable without specifying its type in Python?",
         "answers": [
-            "int x = 5;",
-            "integer x = 5;",
-            "num x = 5;",
-            "var x = '5';"
+            "The variable is not created until a type is declared",
+            " Python throws an error due to missing type annotation",
+            "Python automatically infers the type of the variable",
+            "The variable is assigned as type string by default"
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 2
     },
     {
         "question": "What data type is suitable for a word?",
@@ -50,12 +50,12 @@
         "correctAnswerIndex": 2
     },
     {
-        "question": "Which of the following statements is correct for storing a decimal number?",
+        "question": " Which data type in Python is used to store numbers with decimal points?",
         "answers": [
-            "x = 4.5;",
-            "float x = 4.5;",
-            "bool x = 4.5;",
-            "string x =4.5;"
+            "int",
+            "float ",
+            "str",
+            "decimalpoint"
         ],
         "correctAnswerIndex": 1
     },
@@ -110,12 +110,14 @@
         "correctAnswerIndex": 0
     },
     {
-        "question": "What is the maximum number of characters a string variable can store?",
+        "question": "What determines the maximum size of a string in Python?",
         "answers": [
-             "256",
-             "1024",
-             "There is no limit", 
-             "64,000"
+             "The built-in Python string limit",
+             " The default string pool",
+             "The memory available on the system", 
+             " A fixed 255-character limit
+
+"
         ],
         "correctAnswerIndex": 2
     },
