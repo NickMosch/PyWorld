@@ -5,11 +5,6 @@
     "correctAnswerIndex": 2
   },
   {
-    "question": "Which of the following is a type of database?",
-    "answers": ["MySQL", "Python", "NumPy", "HTML"],
-    "correctAnswerIndex": 0
-  },
-  {
     "question": "Which keyword is used for conditional statements in Python?",
     "answers": ["if", "loop", "switch", "case"],
     "correctAnswerIndex": 0
@@ -58,11 +53,6 @@
     "question": "What will happen if you try to divide by zero in Python?",
     "answers": ["Returns 0", "Raises ZeroDivisionError", "Returns None", "Skips the line"],
     "correctAnswerIndex": 1
-  },
-  {
-    "question": "Which of the following is a data structure in Python?",
-    "answers": ["int", "for", "list", "return"],
-    "correctAnswerIndex": 2
   },
   {
     "question": "Which data structure uses key-value pairs?",

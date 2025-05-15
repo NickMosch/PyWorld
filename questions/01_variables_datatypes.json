@@ -115,9 +115,7 @@
              "The built-in Python string limit",
              " The default string pool",
              "The memory available on the system", 
-             " A fixed 255-character limit
-
-"
+             " A fixed 255-character limit"
         ],
         "correctAnswerIndex": 2
     },
