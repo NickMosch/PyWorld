@@ -62,7 +62,7 @@ def loadGameContent(correctTutorialAnswers):
     
     for currentFileIndex in range(min,max):
         questionsFile = sorted(questions_path.iterdir())[currentFileIndex]
-        with open(str(questionsFile), 'r') as file:    
+        with open(str(questionsFile), 'r',encoding='utf-8') as file:    
             questions.append(json.load(file))
 
     assetsLoaded = 0
@@ -101,8 +101,8 @@ class Laser:
         self.image = LASER_BULET
         self.image = pg.transform.scale(self.image, (80, 30))
         self.mask = pg.mask.from_surface(self.image)
-        self.x = x + 20
-        self.y = y + 10
+        self.x = x 
+        self.y = y 
 
     def draw(self, window):
         window.blit(self.image, (self.x, self.y))
@@ -115,22 +115,35 @@ class Laser:
     
     def get_height(self):
         return self.image.get_height()
+    
+ # Scale για κάθε εικόνα ανά κεφάλαιο
+PLAYER_SCALES = [0.2, 0.2, 2.0, 1.6] 
+
+def scale_image(image, scale_factor):
+    original_size = image.get_size()
+    scaled_size = (int(original_size[0] * scale_factor), int(original_size[1] * scale_factor))
+    return pg.transform.scale(image, scaled_size)
 
 class Player:
 
     VELOCITY = 5
 
-    def __init__(self,game):
+    def __init__(self, game):
         self.game = game
-        self.image = PLAYER_IMG
-        #self.image = pg.transform.rotate(self.image, 0)
-        self.image = pg.transform.scale(self.image, (150, 100))
+        self.chapter = game.chapter  # έχει το chapter ορισμένο (0–3)
+
+        # Φόρτωση και scale εικόνας ανά κεφάλαιο
+        player_path = chaptersAssets[self.chapter]["player"]
+        original_image = pg.image.load(player_path).convert_alpha()
+        scale = PLAYER_SCALES[self.chapter]
+        self.image = scale_image(original_image, scale)
+
         self.HEIGHT = self.game.HEIGHT
         self.x = 50
-        self.y = int(self.HEIGHT/2)
+        self.y = int(self.HEIGHT / 2)
         self.mask = pg.mask.from_surface(self.image)
         self.laser_power = 1
-        self.lasers = []  # List of bullets in the screen shot by the player
+        self.lasers = [] # List of bullets in the screen shot by the player
         self.cooldown_timer = 0
         self.cooldown = 80
 
@@ -141,10 +154,23 @@ class Player:
         self.cooldown_timer -= 1
 
     def shoot(self):
-        if self.cooldown_timer <= 0:
-            new_laser = Laser(self.x + self.image.get_width() / 2, self.y)
-            self.lasers.append(new_laser)
-            self.cooldown_timer = self.cooldown
+     if self.cooldown_timer <= 0:
+        laser_width = 80   # ίδιο με το Laser class
+        laser_height = 30
+
+        # Κέντρο παίκτη
+        player_center_x = self.x + self.get_width() // 2
+        player_center_y = self.y + self.get_height() // 2
+
+        # Offset προς τα κάτω (π.χ. +15 pixels)
+        offset_y = 15
+
+        laser_x = self.x + self.get_width() - 10  # λίγο μπροστά
+        laser_y = player_center_y - laser_height // 2 + offset_y
+
+        new_laser = Laser(laser_x, laser_y)
+        self.lasers.append(new_laser)
+        self.cooldown_timer = self.cooldown
 
     def move(self, direction):
         if direction == "left":
@@ -183,8 +209,8 @@ class Alien:
         self.x = x
         self.y = y
         self.image = ENEMY_IMG
-        self.mask = pg.mask.from_surface(self.image)
         self.image = pg.transform.scale(self.image, (140, 100))
+        self.mask = pg.mask.from_surface(self.image)
         self.isAnswer = False
 
     def draw(self, window):
@@ -236,8 +262,8 @@ class Game():
         for i in range(len(self.aliens)):
             self.aliens[i].draw(self.WINDOW)
             if not self.paused:
-                self.aliens[i].move()
-            self.draw_text(20,questions[self.chapter][self.level]["answers"][i],self.aliens[i].x + 20,self.aliens[i].y - 20,self.WHITE)
+                self.aliens[i].move() 
+            self.draw_text(20, questions[self.chapter][self.level]["answers"][i], self.aliens[i].x + 20, self.aliens[i].y - 3, self.WHITE)
         self.draw_text(30,f"LEVEL {self.level + 1}",self.WIDTH/2,20,self.WHITE)
         self.draw_text(25,questions[self.chapter][self.level]["question"],self.WIDTH/2,100,self.WHITE)
         if self.paused:
