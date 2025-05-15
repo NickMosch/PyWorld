@@ -35,7 +35,7 @@ class introScreen:
         # Sound
         self.background_music = self.game.menu.bg_music
         self.sound2 = self.game.menu.sound2
-        self.background_music.set_volume(0.2)
+        self.background_music.set_volume(0.3)
 
     def draw_instructions(self):
         self.screen.blit(self.background, (0, 0))
@@ -73,7 +73,7 @@ class introScreen:
         self.game.fade("intro",0)
 
         running = True
-        self.background_music.play()
+        self.background_music.play(-1)
         while running:
             self.draw_instructions()
             pygame.display.flip()

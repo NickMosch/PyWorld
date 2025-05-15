@@ -54,6 +54,7 @@
     "answers": ["Returns 0", "Raises ZeroDivisionError", "Returns None", "Skips the line"],
     "correctAnswerIndex": 1
   },
+
   {
     "question": "Which data structure uses key-value pairs?",
     "answers": ["list", "set", "tuple", "dictionary"],

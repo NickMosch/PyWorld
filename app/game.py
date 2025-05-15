@@ -23,7 +23,6 @@ questions = []
 
 pg.mixer.init()
 
-collision_sound_path = (BASE_DIR / "assets" / "sound_effects" / "explosion.mp3")
 victory_sound_path = (BASE_DIR / "assets" / "sound_effects" / "victory.mp3").resolve()
 defeat_sound_path = (BASE_DIR / "assets" / "sound_effects" / "defeat.mp3").resolve()
 shootlaser_sound_path = (BASE_DIR / "assets" / "sound_effects" / "laser_shot.mp3").resolve()
@@ -32,7 +31,6 @@ nature_environment_path = (BASE_DIR / "assets" / "sound_effects" / "missle_shot.
 sky_environment_path = (BASE_DIR / "assets" / "sound_effects" / "sky_jet.mp3").resolve()
 space_environment_path = (BASE_DIR / "assets" / "sound_effects" / "space_ufo.mp3").resolve()
 
-collision_sound = pg.mixer.Sound(str(collision_sound_path))
 victory_sound = pg.mixer.Sound(str(victory_sound_path))
 defeat_sound = pg.mixer.Sound(str(defeat_sound_path))
 shootlaser_sound = pg.mixer.Sound(str(shootlaser_sound_path))
@@ -43,17 +41,17 @@ space_environment = pg.mixer.Sound(str(space_environment_path))
 
 sky_environment.set_volume(0.1)
 
-def loadGameContent(correctTutorialAnswers):
+def loadGameContent(playerSkillLevel):
     questions.clear()
     chaptersAssets.clear()
     
-    if correctTutorialAnswers == 0:
+    if playerSkillLevel == 0:
         min = 0
         max = 4
-    elif correctTutorialAnswers == 1:
+    elif playerSkillLevel == 1:
         min = 1
         max = 5
-    elif correctTutorialAnswers == 2:
+    elif playerSkillLevel == 2:
         min = 2
         max = 6
     else:
@@ -249,7 +247,11 @@ class Game():
         self.lose_screen = LoseScreen(self)
         self.intro_screen = introScreen(self)
         self.environment_sounds = [sea_environment,nature_environment,sky_environment,space_environment]
+        self.victory_sound = victory_sound
+        self.defeat_sound = defeat_sound
+        self.laser_sound = shootlaser_sound
         self.correctTutorialAnswers = 0
+        self.playerSkillLevel = 0
         self.chapter = 0
         self.level = 0
         self.state = 0  # default state
@@ -345,7 +347,7 @@ class Game():
     def handle_game_state(self):
         if self.state==1:
             self.level+=1
-            if self.level==1:
+            if self.level==2:
                 global PLAYER_IMG
                 global ENEMY_IMG
                 global LASER_BULET
@@ -387,10 +389,18 @@ class Game():
             self.tran_screen.isScreenRunning = True
 
         if self.level == 2:
+            if self.correctTutorialAnswers <=2:
+                self.playerSkillLevel = 0
+            elif self.correctTutorialAnswers <= 5:
+                self.playerSkillLevel = 1
+            elif self.correctTutorialAnswers <= 9:
+                self.playerSkillLevel = 2
+            else:
+                self.playerSkillLevel = 3
             self.tran_screen.isTutorialComplete = True
             self.level = 0
             self.environment_sounds[self.chapter].stop()
-            loadGameContent(self.correctTutorialAnswers)
+            loadGameContent(self.playerSkillLevel)
 
     def game_loop(self):
 

@@ -47,7 +47,7 @@ class menu:
         self.selected_index = 0
         self.current_screen = "menu"
         self.run_display = False
-        self.skillLevels = ["Beginner","Intermediate","Expert","Wizard"]
+        self.skillLevels = ["Beginner","Intermediate","Expert","Pro"]
 
         # Settings
         self.volume = 0.3
@@ -55,7 +55,7 @@ class menu:
 
     def draw_menu(self):
         self.screen.blit(self.background, (0, 0))
-        title_text = self.FONT.render(f"Welcome to PyWorld! Your level is {self.skillLevels[self.game.correctTutorialAnswers]}", True, self.YELLOW)
+        title_text = self.FONT.render(f"Welcome to PyWorld! Your level is {self.skillLevels[self.game.playerSkillLevel]}", True, self.YELLOW)
         self.screen.blit(title_text, (self.WIDTH//2 - title_text.get_width()//2, 100))
 
         for i, rect in enumerate(self.buttons):
@@ -170,10 +170,20 @@ class menu:
                         if event.key == pygame.K_LEFT:
                             self.volume = max(0.0, self.volume - 0.1)
                             self.bg_music.set_volume(self.volume)
+                            for chapter_background_music_ in self.game.environment_sounds:
+                                chapter_background_music_.set_volume(self.volume)
+                            self.game.victory_sound.set_volume(self.volume)
+                            self.game.defeat_sound.set_volume(self.volume)
+                            self.game.laser_sound.set_volume(self.volume)
                             self.sound2.play()
                         elif event.key == pygame.K_RIGHT:
                             self.volume = min(1.0, self.volume + 0.1)
                             self.bg_music.set_volume(self.volume)
+                            for chapter_background_music_ in self.game.environment_sounds:
+                                chapter_background_music_.set_volume(self.volume)
+                            self.game.victory_sound.set_volume(self.volume)
+                            self.game.defeat_sound.set_volume(self.volume)
+                            self.game.laser_sound.set_volume(self.volume)
                             self.sound2.play()
                         elif event.key == pygame.K_UP:
                             self.brightness = min(1.0, self.brightness + 0.1)
