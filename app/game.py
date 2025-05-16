@@ -386,7 +386,7 @@ class Game():
         """Χειρισμός της κατάστασης του παιχνιδιού (νίκη/ήττα)"""
         if self.state==1:  # Νίκη
             self.level+=1
-            if self.level==2:  # Αν ολοκληρώθηκε το κεφάλαιο
+            if self.level==9:  # Αν ολοκληρώθηκε το κεφάλαιο
                 global PLAYER_IMG
                 global ENEMY_IMG
                 global LASER_BULET
@@ -429,7 +429,7 @@ class Game():
             self.gameLoopRun = False
             self.tran_screen.isScreenRunning = True
 
-        if self.level == 2:  # Ολοκλήρωση tutorial
+        if self.level == 12:  # Ολοκλήρωση tutorial
             if self.correctTutorialAnswers <=2:
                 self.playerSkillLevel = 0
             elif self.correctTutorialAnswers <= 5:
