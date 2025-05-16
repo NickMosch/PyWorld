@@ -72,8 +72,7 @@ class Screen():
                 self.game.draw_text(30,"YOU COMPLETED THE TUTORIAL",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
                 self.game.draw_text(20,"Press enter to start the main game",self.game.WIDTH/2,self.game.HEIGHT/2 + 60,self.game.WHITE)
             else:
-                self.game.draw_text(30,"NEXT TUTORIAL LEVEL STARTS IN...",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
-                self.game.draw_text(20,"Press enter to actually start it, there is no timer yet",self.game.WIDTH/2,self.game.HEIGHT/2 + 60,self.game.WHITE)
+                self.game.draw_text(30,"PRESS ENTER TO START THE NEXT TUTORIAL LEVEL",self.game.WIDTH/2,self.game.HEIGHT/2,self.game.WHITE)
         
         pygame.display.update()  # Ενημέρωση οθόνης
 
