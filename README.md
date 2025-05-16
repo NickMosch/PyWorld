@@ -1,2 +1,7 @@
 # PyWorld
-Educational game built with PyGame.
+
+PyWorld is a Space-Invaders based videogame that combines fun adventure gaming with education!
+The purpose of the game is to familiarize beginner programmers with the fundamental principles of the coding language Python.
+
+The game logic works like this: 
+Once the user starts the program, an instructions screen will appear, explaining how to navigate the main menu and the gameplay mechanics. When the user presses the 'ENTER' button, a pre-game quiz sequence will commence and when the user answers all the questions, they will be given a characterization such as "beginner", "intermediate", "pro" or "expert" depending on how many of the previous questions were answered correctly. Then they will be transferred to the main menu where they will be able to view the instructions manual, adjust the brightness level and sound volume through the settings tab and start the main game. The main game sequence consists of 4 chapters, each with a different theme (1st Chapter: Deep sea submarines, 2nd Chapter: Tanks, 3rd Chapter: Fighter Jets and helicopters and 4th Chapter: UFO's). At the top of the screen, a question will appear and on the opposite side of the player 4 sprites, each carrying a possible answer, will spawn and the player has to shoot the correct answer to conitnue (There is only ONE correct answer). If a question is answered incorrectly, the player restarts the chapter.
